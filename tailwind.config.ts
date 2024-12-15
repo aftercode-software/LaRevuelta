@@ -8,6 +8,11 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        fustat: ["Fustat", "sans-serif"],
+        onest: ["Onest", "sans-serif"],
+        geist: ["Geist", "sans-serif"],
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
