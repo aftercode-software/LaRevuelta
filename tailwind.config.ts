@@ -13,6 +13,9 @@ export default {
         onest: ["Onest", "sans-serif"],
         geist: ["Geist", "sans-serif"],
       },
+      screens: {
+        xs: "400px",
+      },
       colors: {
         secundario: {
           DEFAULT: "#4CE876",
