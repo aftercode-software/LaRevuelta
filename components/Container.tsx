@@ -18,7 +18,9 @@ const Container = ({
   className,
 }: ContainerProps) => {
   return (
-    <Tag className={cn("max-w-7xl mx-auto h-full", className)}>{children}</Tag>
+    <Tag className={cn("max-w-[90%] mx-auto h-full", className)}>
+      {children}
+    </Tag>
   );
 };
 
