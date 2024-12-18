@@ -25,7 +25,7 @@ export default function Hero() {
           <HeroSubtitle />
         </div>
       </Container>
-      <div className="-mt-28 mx-auto w-fit">
+      <div className="-mt-40 sm:-mt-28 mx-auto w-fit">
         <NosObsesionamos />
       </div>
     </div>
