@@ -10,7 +10,7 @@ export default function NosObsesionamos() {
       duration: 0.4,
       y: 50,
       delay: 3,
-      ease: "expo.inOut",
+      ease: "power2.in",
     });
   });
 
