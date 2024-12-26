@@ -27,24 +27,19 @@ export const TimelineProvider = ({
     let config = {
       scrollTrigger: {
         trigger: triggerSelector,
-        start: "top top", // When top of container hits top of viewport
-        end: "+=2000", // When bottom of container hits top of viewport
-        // toggleActions: "play reverse play reverse",
-        pin: true, // Pin the container so that we can see the transition happen
+        start: "top top",
+        end: "+=3100",
+        pin: true,
         scrub: 0.8,
         autoRemoveChildren: true,
         markers: true,
-        snap: {
-          snapTo: 1 / 100,
-          snapUnits: true,
-        },
       },
     };
-    // if (defaultConfig) config = { ...config, ...defaultConfig };
+    if (defaultConfig) config = { ...config, ...defaultConfig };
     const tl = gsap.timeline(config);
     tl.addLabel("firstpart", 0);
     tl.addLabel("secondpart", "firstpart+3");
-    tl.addLabel("thirdpart", "secondpart+3");
+    tl.addLabel("thirdpart", "firstpart>3");
     setTl(tl);
   }, []);
 

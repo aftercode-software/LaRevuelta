@@ -2,18 +2,17 @@
 import { TimelineProvider, useTimeline } from "@/hooks/useTimeline";
 import { useGSAP } from "@gsap/react";
 import React, { useRef } from "react";
-import Circle from "./Circle";
 import TextBox from "./TextBox";
 
-export default function Necesidades() {
+export default function CirculoVirtuoso() {
   return (
-    <TimelineProvider triggerSelector=".container-necesidades">
-      <EscenaNecesidades />
+    <TimelineProvider triggerSelector=".container-circulo-virtuoso">
+      <EscenaCirculoVirtuoso />
     </TimelineProvider>
   );
 }
 
-function EscenaNecesidades() {
+function EscenaCirculoVirtuoso() {
   const personRef = useRef<HTMLImageElement>(null);
 
   const tl = useTimeline();
@@ -44,7 +43,7 @@ function EscenaNecesidades() {
   }, [tl]);
 
   return (
-    <div className="container-necesidades relative flex flex-col w-full h-screen bg-black overflow-hidden">
+    <div className="container-circulo-virtuoso relative flex flex-col w-full h-screen bg-black overflow-hidden">
       <div className="relative flex-1 w-full h-full flex flex-col items-center justify-center">
         {/* Person */}
         <img
@@ -53,14 +52,15 @@ function EscenaNecesidades() {
           className="person w-32"
           ref={personRef}
         />
-        <NecesidadesCircle />
+        <NecesidadesCircleStore />
       </div>
 
       <TextBox label="firstpart">
         <p>
-          Las personas tenemos miles incluso
-          <b> millones de necesidades</b> que se manifiestan en función de
-          nuestras creencias, experiencias, rutinas, cultura y demás variables.
+          Se genera un círculo virtuoso con <b>múltiples beneficios</b>: los
+          usuarios satisfacen sus necesidades mediante empresas afines a sus
+          valores, mientras las empresas fortalecen su propuesta de valor
+          mejorando vidas.
         </p>
       </TextBox>
     </div>
@@ -103,19 +103,26 @@ function NecesidadBox({
             : undefined,
       }}
       id={id}
-      className="necesidad absolute flex flex-col items-center gap-1 py-2 px-6 bg-black z-30 text-white rounded-lg border-2 border-primario-500 w-fit"
+      className="necesidad2 absolute  text-white w-fit z-30"
     >
-      <img
-        src="/images/filosofia/important.svg"
-        alt="Necesidad"
-        className="w-8"
-      />
-      <span className="text-xl font-medium font-onest">Necesidad</span>
+      <div className="relative rounded-lg gap-1 bg-black flex flex-col items-center py-2 px-6 border-2 border-primario-500">
+        <img
+          src="/images/filosofia/important.svg"
+          alt="Necesidad"
+          className="w-8"
+        />
+        <span className="text-xl font-medium font-onest">Necesidad</span>
+        <img
+          src="/images/filosofia/store-on.png"
+          alt="Arrow"
+          className="absolute h-28 -left-16 -top-10 -z-50"
+        />
+      </div>
     </div>
   );
 }
 
-function NecesidadesCircle() {
+export function NecesidadesCircleStore() {
   const tl = useTimeline();
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -123,7 +130,7 @@ function NecesidadesCircle() {
     if (!tl) return;
 
     tl.from(
-      ".necesidad",
+      ".necesidad2",
       {
         opacity: 0,
         scale: 0.8,
@@ -135,7 +142,7 @@ function NecesidadesCircle() {
     );
 
     tl.from(
-      ".circle",
+      ".circle2",
       {
         rotation: 360,
         opacity: 0,
@@ -145,7 +152,7 @@ function NecesidadesCircle() {
     );
 
     tl.to(
-      ".necesidad",
+      ".necesidad2",
       {
         opacity: 0,
         duration: 2,
@@ -155,7 +162,7 @@ function NecesidadesCircle() {
     );
 
     tl.to(
-      ".circle",
+      ".circle2",
       {
         opacity: 0,
         duration: 2,
@@ -167,7 +174,7 @@ function NecesidadesCircle() {
 
   return (
     <div ref={containerRef}>
-      <NecesidadBox top="3%" centerX />
+      <NecesidadBox top="5%" centerX />
       <NecesidadBox top="25%" right="25%" />
       <NecesidadBox bottom="25%" right="25%" />
       <NecesidadBox bottom="3%" centerX />
@@ -176,7 +183,7 @@ function NecesidadesCircle() {
       <img
         src="/images/filosofia/elipse.svg"
         alt="Circle"
-        className="circle opacity-40 absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 w-[45vw]"
+        className="circle2 opacity-40 absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 w-[45vw]"
       />
     </div>
   );
