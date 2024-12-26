@@ -17,8 +17,9 @@ body {
 .background-hero {
   background: radial-gradient(
       at right center,
-      rgba(255, 255, 255, 0),
-      rgba(0, 0, 0, 1)
+      rgba(255, 255, 255, 0) 0%,
+      rgba(0, 0, 0, 0.5) 50%,
+      rgba(0, 0, 0, 1) 80%
     ),
     url("/images/hero.jpg") no-repeat center center / cover;
 }
