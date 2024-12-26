@@ -5,7 +5,7 @@ import { gsap } from "gsap";
 import Container from "./Container";
 import { CirclePlus, Sparkle } from "lucide-react";
 
-export default function TransformationSummarized() {
+export default function TransformationComplete() {
   const [openIndex, setOpenIndex] = useState(0);
   const contentRefs = useRef([]);
   const iconRefs = useRef([]);
@@ -49,15 +49,17 @@ export default function TransformationSummarized() {
       title: "ANALÍTICA",
       content: (
         <div className={BOX}>
-          <aside className="flex flex-col">
-            <p className={DURACION}>
-              <strong>DURACIÓN</strong> 1 a 2 meses
-            </p>
-            <p className={TEXTOBRILLITO}>
-              <Sparkle size={20} className={BRILLITO} strokeWidth={3} />
-              <b className="font-bold">Generación</b> de una{" "}
-              <b className="font-extrabold">hiper conciencia</b>
-            </p>
+          <section className="flex flex-col w-full">
+            <div className="flex justify-between">
+              <p className={TEXTOBRILLITO}>
+                <Sparkle size={20} className={BRILLITO} strokeWidth={3} />
+                <b className="font-bold">Generación</b> de una{" "}
+                <b className="font-extrabold">hiper conciencia</b>
+              </p>
+              <p className={DURACION}>
+                <strong>DURACIÓN</strong> 1 a 2 meses
+              </p>
+            </div>
             <strong className={SUBTITULO1}>Analítica Interna</strong>
             <ul className={LIST}>
               <li>
@@ -87,14 +89,7 @@ export default function TransformationSummarized() {
                 competencia.
               </li>
             </ul>
-          </aside>
-          <aside className="w-1/2 hidden lg:block">
-            <img
-              src="/transformation/velocimetro.webp"
-              alt="rocket"
-              className="absolute -right-20 w-[35%] -bottom-4"
-            />
-          </aside>
+          </section>
         </div>
       ),
     },
@@ -215,7 +210,7 @@ export default function TransformationSummarized() {
           <button
             className={`w-full ${
               index !== items.length - 1 ? "-mb-5 lg:-mb-6 xl:-mb-8" : " "
-            } font-geist text-left px-1 xl:px-4 py-3 text-[2.7rem] leading-[2.7rem] lg:text-6xl xl:text-[7rem]  xl:leading-[7rem] font-bold flex justify-between items-center transition-colors duration-300 ${
+            } font-geist text-left px-1 xl:px-4 py-3 text-[2.7rem] leading-[2.7rem] lg:text-6xl xl:text-7xl font-bold flex justify-between items-center transition-colors duration-300 ${
               openIndex === index ? "text-black" : "text-white"
             }`}
             onClick={() => toggleAccordion(index)}
@@ -241,7 +236,7 @@ export default function TransformationSummarized() {
           </button>
           <div
             ref={(el) => (contentRefs.current[index] = el)}
-            className="px-2 lg:px-12 opacity-0 *:font-geist"
+            className="px-2 lg:px-3 opacity-0 *:font-geist"
           >
             {item.content}
           </div>
