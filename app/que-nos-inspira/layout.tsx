@@ -15,7 +15,7 @@ export default function InspirationLayout({
         tittleBold="inspira"
         desc="Lorem ipsum dolores amet lorem ipsum dolores amet lorem ipsum dolores amet lorem ipsum dolores amet"
       />
-      <main>{children}</main>
+      <main className="">{children}</main>
     </>
   );
 }

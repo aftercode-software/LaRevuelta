@@ -10,9 +10,9 @@ const inspirations = [
     img: "/inspiracion/phil_knight.webp",
   },
   {
-    title: "Los Beatles",
+    title: "The Beatles",
     desc: "Creatividad e impacto cultural en la música.",
-    slug: "los-beatles",
+    slug: "the-beatles",
     img: "/inspiracion/vinyl.webp",
   },
   {
@@ -30,7 +30,7 @@ export default function Page() {
         <Link
           key={inspo.slug}
           href={`/que-nos-inspira/${inspo.slug}`}
-          className="flex flex-col items-center text-center w-full cursor-pointer hover:scale-105 transition-transform"
+          className="flex flex-col items-center text-center w-full cursor-pointer transition-transform"
         >
           <p className="font-fustat font-extrabold text-primario-300 text-4xl mb-4">
             {inspo.title}
