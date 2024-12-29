@@ -2,6 +2,7 @@
 import { TimelineProvider, useTimeline } from "@/hooks/useTimeline";
 import { useGSAP } from "@gsap/react";
 import TextBox from "./TextBox";
+import useMediaQuery from "@/hooks/useMediaQuery";
 
 export default function Empresas() {
   return (
@@ -13,6 +14,9 @@ export default function Empresas() {
 
 function EscenaEmpresas() {
   const tl = useTimeline();
+  const isMobile = useMediaQuery("(max-width: 640px)");
+  const isTablet = useMediaQuery("(max-width: 1024px)");
+  const amountStores = isMobile ? 2 : isTablet ? 4 : 6;
 
   useGSAP(() => {
     if (!tl) return;
@@ -22,7 +26,7 @@ function EscenaEmpresas() {
       {
         opacity: 0,
         scale: 0.9,
-        stagger: 1,
+        stagger: 0.5,
         duration: 1,
         ease: "power4.inOut",
       },
@@ -36,7 +40,7 @@ function EscenaEmpresas() {
         scale: 0.6,
         ease: "power4.inOut",
       },
-      "firstpart+1"
+      "firstpart+=1"
     );
     tl.from(
       ".necesidad-w-arrow",
@@ -48,7 +52,40 @@ function EscenaEmpresas() {
         duration: 1,
         ease: "power4.inOut",
       },
-      "firstpart+1.5"
+      "firstpart+=1.5"
+    );
+
+    tl.to(
+      ".store-off",
+      {
+        opacity: 0,
+        scale: 0.9,
+        stagger: 0.5,
+        ease: "power4.inOut",
+      },
+      "+=1"
+    );
+
+    tl.to(
+      ".store-on",
+      {
+        opacity: 0,
+        scale: 0.9,
+        stagger: 0.5,
+        ease: "power4.inOut",
+      },
+      "+=1.5"
+    );
+
+    tl.to(
+      ".necesidad-w-arrow",
+      {
+        opacity: 0,
+        scale: 0.9,
+        stagger: 0.5,
+        ease: "power4.inOut",
+      },
+      "<"
     );
   }, [tl]);
 
@@ -67,21 +104,14 @@ function EscenaEmpresas() {
           <img src="/images/filosofia/arrow.svg" alt="" />
         </div>
         <div className="w-full flex items-center justify-between gap-4">
-          <img
-            src="/images/filosofia/store-off.png"
-            alt="Empresas"
-            className="store-off w-48 h-fit opacity-40"
-          />
-          <img
-            src="/images/filosofia/store-off.png"
-            alt="Empresas"
-            className="store-off w-48 h-fit opacity-40"
-          />
-          <img
-            src="/images/filosofia/store-off.png"
-            alt="Empresas"
-            className="store-off w-48 h-fit opacity-40"
-          />
+          {Array.from({ length: amountStores / 2 }).map((_, i) => (
+            <img
+              key={i}
+              src="/images/filosofia/store-off.png"
+              alt="Empresas"
+              className="store-off w-28 sm:w-36 lg:w-44 2xl:w-48 h-28 sm:h-36 lg:w-44 2xl:h-48 object-contain opacity-40"
+            />
+          ))}
           <div className="store-on flex flex-col items-center justify-center">
             <img
               src="/images/filosofia/store-on.png"
@@ -90,21 +120,14 @@ function EscenaEmpresas() {
             />
             <p className="font-onest font-black text-4xl">EMPRESA</p>
           </div>
-          <img
-            src="/images/filosofia/store-off.png"
-            alt="Empresas"
-            className="store-off w-48 h-fit opacity-40"
-          />
-          <img
-            src="/images/filosofia/store-off.png"
-            alt="Empresas"
-            className="store-off w-48 h-fit opacity-40"
-          />
-          <img
-            src="/images/filosofia/store-off.png"
-            alt="Empresas"
-            className="store-off w-48 h-fit opacity-40"
-          />
+          {Array.from({ length: amountStores / 2 }).map((_, i) => (
+            <img
+              key={i}
+              src="/images/filosofia/store-off.png"
+              alt="Empresas"
+              className="store-off w-28 sm:w-36 lg:w-44 2xl:w-48 h-28 sm:h-36 lg:w-44 2xl:h-48 object-contain opacity-40"
+            />
+          ))}
         </div>
       </div>
       <TextBox label="firstpart">
