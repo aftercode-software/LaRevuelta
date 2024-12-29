@@ -2,7 +2,6 @@
 import { TimelineProvider, useTimeline } from "@/hooks/useTimeline";
 import { useGSAP } from "@gsap/react";
 import React, { useRef } from "react";
-import Circle from "./Circle";
 import TextBox from "./TextBox";
 
 export default function Necesidades() {
@@ -50,7 +49,7 @@ function EscenaNecesidades() {
         <img
           src="/images/filosofia/myman.png"
           alt="Person"
-          className="person w-32"
+          className="person w-28 sm:w-32"
           ref={personRef}
         />
         <NecesidadesCircle />
@@ -68,49 +67,24 @@ function EscenaNecesidades() {
 }
 
 type NecesidadBoxProps = {
-  top?: number | string;
-  left?: number | string;
-  right?: number | string;
-  bottom?: number | string;
-  centerX?: boolean;
-  centerY?: boolean;
+  className?: string;
   id?: string;
 };
 
-function NecesidadBox({
-  top,
-  left,
-  right,
-  bottom,
-  centerX,
-  centerY,
-  id,
-}: NecesidadBoxProps) {
+function NecesidadBox({ className, id }: NecesidadBoxProps) {
   return (
     <div
-      style={{
-        top: top ? `${top}` : undefined,
-        left: left ? `${left}` : undefined,
-        right: right ? `${right}` : undefined,
-        bottom: bottom ? `${bottom}` : undefined,
-        transform:
-          centerX && centerY
-            ? "translate(-50%, -50%)"
-            : centerX
-            ? "translateX(-50%)"
-            : centerY
-            ? "translateY(-50%)"
-            : undefined,
-      }}
       id={id}
-      className="necesidad absolute flex flex-col items-center gap-1 py-2 px-6 bg-black z-30 text-white rounded-lg border-2 border-primario-500 w-fit"
+      className={`necesidad absolute flex flex-col items-center gap-1 py-1 sm:py-2 px-3 sm:px-6 bg-black z-30 text-white rounded-lg border-2 border-primario-500 w-fit ${className}`}
     >
       <img
-        src="/images/filosofia/important.svg"
+        src="/images/filosofia/bulb.svg"
         alt="Necesidad"
-        className="w-8"
+        className="w-5 sm:w-6"
       />
-      <span className="text-xl font-medium font-onest">Necesidad</span>
+      <span className="text-lg sm:text-xl font-medium font-onest">
+        Necesidad
+      </span>
     </div>
   );
 }
@@ -139,9 +113,9 @@ function NecesidadesCircle() {
       {
         rotation: 360,
         opacity: 0,
-        ease: "power2.inOut",
+        ease: "power3.inOut",
       },
-      ">"
+      "<+=0.5"
     );
 
     tl.to(
@@ -167,16 +141,16 @@ function NecesidadesCircle() {
 
   return (
     <div ref={containerRef}>
-      <NecesidadBox top="3%" centerX />
-      <NecesidadBox top="25%" right="25%" />
-      <NecesidadBox bottom="25%" right="25%" />
-      <NecesidadBox bottom="3%" centerX />
-      <NecesidadBox bottom="25%" left="25%" />
-      <NecesidadBox top="25%" left="25%" />
+      <NecesidadBox className="top-[2vh] sm:top-[3vh] lg:top-[2vh] left-1/2 -translate-x-1/2" />
+      <NecesidadBox className="top-[20vh] right-2 md:right-[15vw] lg:right-[20vw] xl:right-[25vw] 2xl:right-[28vw]" />
+      <NecesidadBox className="bottom-[20vh] right-2 md:right-[15vw] lg:right-[20vw] xl:right-[25vw] 2xl:right-[28vw]" />
+      <NecesidadBox className="bottom-[2vh] sm:bottom-[3vh] lg:bottom-[2vh] left-1/2 -translate-x-1/2" />
+      <NecesidadBox className="bottom-[20vh] left-2 md:left-[15vw] lg:left-[20vw] xl:left-[25vw] 2xl:left-[28vw]" />
+      <NecesidadBox className="top-[20vh] left-2 md:left-[15vw] lg:left-[20vw] xl:left-[25vw] 2xl:left-[28vw]" />
       <img
         src="/images/filosofia/elipse.svg"
         alt="Circle"
-        className="circle opacity-40 absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 w-[45vw]"
+        className="circle opacity-40 absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 hidden sm:block h-[90%]"
       />
     </div>
   );

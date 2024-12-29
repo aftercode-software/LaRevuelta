@@ -49,7 +49,7 @@ function EscenaCirculoVirtuoso() {
         <img
           src="/images/filosofia/myman.png"
           alt="Person"
-          className="person w-32"
+          className="person w-24 sm:w-32"
           ref={personRef}
         />
         <NecesidadesCircleStore />
@@ -59,8 +59,7 @@ function EscenaCirculoVirtuoso() {
         <p>
           Se genera un círculo virtuoso con <b>múltiples beneficios</b>: los
           usuarios satisfacen sus necesidades mediante empresas afines a sus
-          valores, mientras las empresas fortalecen su propuesta de valor
-          mejorando vidas.
+          valores.
         </p>
       </TextBox>
     </div>
@@ -68,55 +67,23 @@ function EscenaCirculoVirtuoso() {
 }
 
 type NecesidadBoxProps = {
-  top?: number | string;
-  left?: number | string;
-  right?: number | string;
-  bottom?: number | string;
-  centerX?: boolean;
-  centerY?: boolean;
+  className?: string;
   id?: string;
 };
 
-function NecesidadBox({
-  top,
-  left,
-  right,
-  bottom,
-  centerX,
-  centerY,
-  id,
-}: NecesidadBoxProps) {
+function NecesidadBox({ className, id }: NecesidadBoxProps) {
   return (
     <div
-      style={{
-        top: top ? `${top}` : undefined,
-        left: left ? `${left}` : undefined,
-        right: right ? `${right}` : undefined,
-        bottom: bottom ? `${bottom}` : undefined,
-        transform:
-          centerX && centerY
-            ? "translate(-50%, -50%)"
-            : centerX
-            ? "translateX(-50%)"
-            : centerY
-            ? "translateY(-50%)"
-            : undefined,
-      }}
+      className={`necesidad2 absolute flex flex-col z-30 items-center opacity-1 ${className}`}
       id={id}
-      className="necesidad2 absolute  text-white w-fit z-30"
     >
-      <div className="relative rounded-lg gap-1 bg-black flex flex-col items-center py-2 px-6 border-2 border-primario-500">
-        <img
-          src="/images/filosofia/important.svg"
-          alt="Necesidad"
-          className="w-8"
-        />
-        <span className="text-xl font-medium font-onest">Necesidad</span>
-        <img
-          src="/images/filosofia/store-on.png"
-          alt="Arrow"
-          className="absolute h-28 -left-16 -top-10 -z-50"
-        />
+      <img
+        src="/images/filosofia/store-on.png"
+        alt="Necesidad"
+        className="w-28"
+      />
+      <div className="-mt-14 py-1 px-3 bg-black/50 text-white rounded-lg border-2 border-primario-500 w-fit">
+        <img src="/images/filosofia/bulb.svg" alt="Necesidad" className="w-6" />
       </div>
     </div>
   );
@@ -146,9 +113,9 @@ export function NecesidadesCircleStore() {
       {
         rotation: 360,
         opacity: 0,
-        ease: "power2.inOut",
+        ease: "power3.inOut",
       },
-      ">"
+      "<+=0.5"
     );
 
     tl.to(
@@ -156,9 +123,10 @@ export function NecesidadesCircleStore() {
       {
         opacity: 0,
         duration: 2,
+        stagger: 2,
         ease: "power4.inOut",
       },
-      "+=3"
+      "+=2"
     );
 
     tl.to(
@@ -174,16 +142,16 @@ export function NecesidadesCircleStore() {
 
   return (
     <div ref={containerRef}>
-      <NecesidadBox top="5%" centerX />
-      <NecesidadBox top="25%" right="25%" />
-      <NecesidadBox bottom="25%" right="25%" />
-      <NecesidadBox bottom="3%" centerX />
-      <NecesidadBox bottom="25%" left="25%" />
-      <NecesidadBox top="25%" left="25%" />
+      <NecesidadBox className="top-[1vh] sm:top-[2vh] lg:top-0 left-1/2 -translate-x-1/2" />
+      <NecesidadBox className="top-[20vh] right-2 md:right-[15vw] lg:right-[20vw] xl:right-[25vw] 2xl:right-[28vw]" />
+      <NecesidadBox className="bottom-[20vh] right-2 md:right-[15vw] lg:right-[20vw] xl:right-[25vw] 2xl:right-[28vw]" />
+      <NecesidadBox className="bottom-[2vh] sm:bottom-[3vh] lg:bottom-[1vh] left-1/2 -translate-x-1/2" />
+      <NecesidadBox className="bottom-[20vh] left-2 md:left-[15vw] lg:left-[20vw] xl:left-[25vw] 2xl:left-[28vw]" />
+      <NecesidadBox className="top-[20vh] left-2 md:left-[15vw] lg:left-[20vw] xl:left-[25vw] 2xl:left-[28vw]" />
       <img
         src="/images/filosofia/elipse.svg"
         alt="Circle"
-        className="circle2 opacity-40 absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 w-[45vw]"
+        className="hidden sm:block absolute circle2 opacity-40 top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 h-[95%]"
       />
     </div>
   );

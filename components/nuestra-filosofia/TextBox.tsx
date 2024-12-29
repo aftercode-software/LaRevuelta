@@ -32,14 +32,14 @@ export default function TextBox({
         duration: 2,
         ease: "power4.inOut",
       },
-      `thirdpart`
+      `+=1`
     );
   }, [tl]);
 
   return (
     <div
       ref={containerRef}
-      className=" py-9 px-12 text-center font-geist w-full text-2xl bg-primario-950/30 text-white border-t-2 border-primario-500"
+      className="py-3 sm:py-9 px-8 sm:px-12 text-center font-geist w-full text-xl bg-primario-950/30 text-white border-t-2 border-primario-500"
     >
       {children}
     </div>
