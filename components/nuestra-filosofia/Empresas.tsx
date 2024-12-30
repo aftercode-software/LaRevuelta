@@ -109,7 +109,7 @@ function EscenaEmpresas() {
               key={i}
               src="/images/filosofia/store-off.png"
               alt="Empresas"
-              className="store-off w-28 sm:w-36 lg:w-44 2xl:w-48 h-28 sm:h-36 lg:w-44 2xl:h-48 object-contain opacity-40"
+              className="store-off w-28 sm:w-36 lg:w-44 2xl:w-48 h-28 sm:h-36 lg:h-44 2xl:h-48 object-contain opacity-40"
             />
           ))}
           <div className="store-on flex flex-col items-center justify-center">
@@ -125,7 +125,7 @@ function EscenaEmpresas() {
               key={i}
               src="/images/filosofia/store-off.png"
               alt="Empresas"
-              className="store-off w-28 sm:w-36 lg:w-44 2xl:w-48 h-28 sm:h-36 lg:w-44 2xl:h-48 object-contain opacity-40"
+              className="store-off w-28 sm:w-36 lg:w-44 2xl:w-48 h-28 sm:h-36 lg:h-44 2xl:h-48 object-contain opacity-40"
             />
           ))}
         </div>

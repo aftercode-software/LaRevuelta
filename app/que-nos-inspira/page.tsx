@@ -1,6 +1,26 @@
 import Container from "@/components/Container";
 import Link from "next/link";
 import React from "react";
+const inspirations = [
+  {
+    title: "Nike",
+    desc: "Nike nos inspira por su innovación y redefinición del marketing.",
+    slug: "nike",
+    img: "/inspiracion/phil_knight.webp",
+  },
+  {
+    title: "The Beatles",
+    desc: "Creatividad e impacto cultural en la música.",
+    slug: "the-beatles",
+    img: "/inspiracion/vinyl.webp",
+  },
+  {
+    title: "YSY y Duki",
+    desc: "YSY y Duki nos inspiran con su ascenso global.",
+    slug: "ysy-y-duki",
+    img: "/inspiracion/dukiysy.webp",
+  },
+];
 
 export default function Page() {
   return (
