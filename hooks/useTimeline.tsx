@@ -35,7 +35,7 @@ export const TimelineProvider = ({
         markers: true,
       },
     };
-    if (defaultConfig) config = { ...config, ...defaultConfig };
+    if (defaultConfig) config = defaultConfig;
     const tl = gsap.timeline(config);
     tl.addLabel("firstpart", 0);
     tl.addLabel("secondpart", "firstpart+1.5");
