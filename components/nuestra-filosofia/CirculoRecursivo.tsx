@@ -3,21 +3,23 @@
 import { TimelineProvider, useTimeline } from "@/hooks/useTimeline";
 import { useGSAP } from "@gsap/react";
 import Container from "../Container";
+import GlowingText from "./GlowingText";
 
-const config = {
-  scrollTrigger: {
-    trigger: ".container-circulo-recursivo",
-    start: "top 80%",
-    end: "+=1000",
-    scrub: 0.8,
-    markers: true,
-  },
-};
+// const config = {
+//   scrollTrigger: {
+//     trigger: ".container-circulo-recursivo",
+//     start: "top 80%",
+//     end: "+=1000",
+//     scrub: 0.8,
+//     markers: true,
+//   },
+// };
 
 export default function CirculoRecursivo() {
   return (
     <TimelineProvider
-      defaultConfig={config}
+      end="+=1700"
+      // defaultConfig={config}
       triggerSelector=".container-circulo-recursivo"
     >
       <EscenaCirculoRecursivo />
@@ -32,9 +34,10 @@ function EscenaCirculoRecursivo() {
     if (!tl) return;
 
     tl.from(".first-text-rec", {
+      x: -100,
       opacity: 0,
-      scaleX: 0.4,
-      ease: "power4.inOut",
+      scale: 0.9,
+      ease: "power2.inOut",
     });
 
     tl.from(
@@ -44,45 +47,41 @@ function EscenaCirculoRecursivo() {
         stagger: 0.5,
         ease: "sine.inOut",
       },
-      ">"
+      ">+=4"
     );
   }, [tl]);
 
   return (
-    <div className="container-circulo-recursivo relative flex flex-col justify-center w-full h-screen bg-black overflow-hidden">
-      <Container className="w-[90vw]">
-        <span className="first-text-rec text-2xl font-onest">
+    <section className="container-circulo-recursivo relative flex flex-col justify-center w-full h-screen bg-black overflow-hidden">
+      <Container className="w-[90vw] h-fit mb-20">
+        <span className="block first-text-rec text-3xl font-onest">
           Pero lo verdaderamente gratificante es que <br /> este sistema es{" "}
-          <b className="text-primario-500">infinito</b> y{" "}
-          <b className="text-primario-500">exponencial</b>
+          <GlowingText>infinito</GlowingText> y{" "}
+          <GlowingText>exponencial</GlowingText>
         </span>
       </Container>
-      <div className="-ml-10 flex gap-24 w-full">
+      <div className="-ml-20 sm:-ml-10 flex gap-8 sm:gap-24 w-full">
         {/* <CirculoConPersona /> */}
         {Array.from({ length: 6 }).map((_, i) => (
           <img
             key={"img-c-rec-" + i}
             src="/images/filosofia/person_w_needs.png"
             alt="Person"
-            className="recursive-circle-p w-80"
+            className="recursive-circle-p w-48 sm:w-80"
           />
         ))}
       </div>
-      <div className="ml-10 mt-10 flex gap-24 w-full">
+      <div className="-ml-6 sm:ml-10 mt-10 flex gap-8 sm:gap-24 w-full">
         {/* <CirculoConPersona /> */}
         {Array.from({ length: 6 }).map((_, i) => (
           <img
             key={"img-c-rec-" + i}
             src="/images/filosofia/person_w_needs.png"
             alt="Person"
-            className="recursive-circle-p w-80"
+            className="recursive-circle-p w-48 sm:w-80"
           />
         ))}
       </div>
-      <span className="text-2xl font-geist">
-        Pero lo verdaderamente gratificante es que este sistema es infinito y
-        exponencial
-      </span>
-    </div>
+    </section>
   );
 }

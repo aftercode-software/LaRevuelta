@@ -16,9 +16,11 @@ export const TimelineProvider = ({
   children,
   triggerSelector,
   defaultConfig,
+  end,
 }: {
   children: React.ReactNode;
   triggerSelector: string;
+  end?: string;
   defaultConfig?: any;
 }) => {
   const [tl, setTl] = useState<GSAPTimeline | null>(null);
@@ -28,7 +30,7 @@ export const TimelineProvider = ({
       scrollTrigger: {
         trigger: triggerSelector,
         start: "top top",
-        end: "+=3100",
+        end: end || "+=3100",
         pin: true,
         scrub: 0.8,
         autoRemoveChildren: true,

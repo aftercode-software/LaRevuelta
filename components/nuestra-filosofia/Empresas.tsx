@@ -1,8 +1,8 @@
 "use client";
+import useMediaQuery from "@/hooks/useMediaQuery";
 import { TimelineProvider, useTimeline } from "@/hooks/useTimeline";
 import { useGSAP } from "@gsap/react";
 import TextBox from "./TextBox";
-import useMediaQuery from "@/hooks/useMediaQuery";
 
 export default function Empresas() {
   return (
@@ -95,9 +95,9 @@ function EscenaEmpresas() {
         <div className="necesidad-w-arrow flex flex-col items-center justify-center gap-4">
           <div className=" flex flex-col items-center gap-1 py-2 px-6 bg-black text-white rounded-lg border-2 border-primario-500 w-fit">
             <img
-              src="/images/filosofia/important.svg"
+              src="/images/filosofia/bulb.svg"
               alt="Necesidad"
-              className="w-8"
+              className="w-5 sm:w-6"
             />
             <span className="text-xl font-medium font-onest">Necesidad</span>
           </div>
