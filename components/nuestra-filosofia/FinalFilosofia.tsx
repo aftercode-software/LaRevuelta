@@ -3,7 +3,7 @@ import Container from "../Container";
 import GlowingText from "./GlowingText";
 export default function FinalFilosofia() {
   return (
-    <div className="min-h-[20vh] bg-black mb-20">
+    <div className="min-h-[20vh] bg-black mt-10 mb-20">
       <Container>
         <p className="first-text-rec text-2xl sm:text-3xl font-onest">
           Mientras más <GlowingText>claras</GlowingText> sean las propuestas de

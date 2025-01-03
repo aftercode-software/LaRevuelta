@@ -3,7 +3,6 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import React from "react";
-import SplitType from "split-type";
 import Container from "./Container";
 import NosObsesionamos from "./NosObsesionamos";
 
@@ -18,7 +17,7 @@ export default function Hero() {
 
   return (
     <div className="background-hero text-4xl w-full h-screen">
-      <Container className="flex flex-col justify-center">
+      <Container className="flex flex-col pt-[20%] lg:pt-[10%]">
         <div>
           <HeroBadge />
           <HeroTitle />
@@ -82,7 +81,7 @@ function HeroTitle() {
     );
   });
   return (
-    <h1 className="text-5xl xs:text-6xl xl:text-7xl font-fustat mt-4">
+    <h1 className="text-5xl xs:text-5xl xl:text-6xl font-fustat mt-4">
       <span className="block hero-title">
         Rompemos{" "}
         <span
