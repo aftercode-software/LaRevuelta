@@ -1,8 +1,10 @@
+"use server";
 import HeroSections from "@/components/HeroSections";
 import TransformationComplete from "@/components/TrasnformationComplete";
+
 import React from "react";
 
-export default function Page() {
+export default async function Page() {
   return (
     <>
       <HeroSections

@@ -1,5 +1,5 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
-
 import React, { useState, useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import Container from "./Container";
@@ -254,7 +254,7 @@ export default function TransformationSummarized() {
 const BOX = "flex flex-row text-gray-700 py-10 relative";
 const BOX3 = "flex flex-row text-gray-700 pb-10 items-start relative";
 const DURACION =
-  "text-xl lg:text-2xl font-semibold mb-3 lg:mb-5 text-primario-950";
+  "text-xl lg:text-2xl font-semibold font-geist mb-3 lg:mb-5 text-primario-950";
 const TEXTOBRILLITO =
   "flex flex-wrap items-center gap-1 sm:gap-2 text-xl font-semibold font-fustat text-secundario-900 leading-5 sm:leading-6 mb-6";
 
@@ -262,6 +262,6 @@ const BRILLITO = "fill-current text-secundario-700";
 const SUBTITULO1 = "text-2xl font-fustat text-primario-950";
 const SUBTITULO2 = "text-2xl font-fustat mt-4 text-primario-950";
 const LIST =
-  "list-disc pl-4 text-lg md:text-base text-primario-900 marker:text-sm marker:text-primario-900";
+  "list-disc pl-4 text-lg text-primario-900 marker:text-sm marker:text-primario-900";
 
 const MARGENTOP = "mt-8";
