@@ -16,7 +16,7 @@ export default function Hero() {
   });
 
   return (
-    <div className="background-hero text-4xl w-full h-screen">
+    <div className="mt-[8vh] background-hero text-4xl w-full h-screen sm:h-[90vh]">
       <Container className="flex flex-col pt-[20%] lg:pt-[10%]">
         <div>
           <HeroBadge />
@@ -43,12 +43,7 @@ function HeroBadge() {
   });
 
   return (
-    <span
-      style={{
-        boxShadow: "0 0 0.5em #FCF532",
-      }}
-      className="block w-fit vamos-posta text-base sm:text-lg rounded-full py-1 px-3 border-2 border-primario-700 font-onest font-bold"
-    >
+    <span className="block w-fit vamos-posta text-base sm:text-lg rounded-full py-1 px-3 border border-primario-300 font-onest font-bold">
       VAMOS POSTA 👈
     </span>
   );
