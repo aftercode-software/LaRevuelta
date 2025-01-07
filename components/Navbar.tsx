@@ -2,7 +2,7 @@
 /* eslint-disable @next/next/no-img-element */
 import clsx from "clsx";
 import gsap from "gsap";
-import { Menu } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -83,21 +83,21 @@ export default function Navbar() {
   return (
     <div
       className={cn(
-        "fixed left-0 top-0 z-50 w-full",
+        "fixed left-0 top-0 z-50 w-screen",
         isOpen ? "h-screen bg-black/40" : "bg-transparent h-fit"
       )}
     >
-      <nav className="flex justify-between items-center border-b-2 border-zinc-800 z-50 w-full bg-black/40 backdrop-blur-md">
+      <nav className="flex justify-between items-center border-b-2 border-zinc-800 z-50 w-full bg-black/40 backdrop-blur-md h-[8dvh]">
         <Link
           href="/"
           onClick={handleLinkClick}
-          className="sm:border-r-2 border-zinc-800 px-[5vw] py-5 h-full"
+          className="flex justify-between items-center sm:border-r-2 border-zinc-800 px-[5vw] h-full"
         >
           <img src="/logo.png" alt="Logo" className="h-8 sm:h-10" />
         </Link>
-        <div className="flex justify-center items-center sm:border-l-2 border-zinc-800 px-[5vw] ">
+        <div className="flex justify-center items-center sm:border-l-2 border-zinc-800 px-[5vw] h-full">
           <button onClick={handleClick}>
-            <Menu size={32} />
+            {isOpen ? <X size={32} /> : <Menu size={32} />}
           </button>
         </div>
       </nav>
