@@ -6,12 +6,11 @@ import Container from "./Container";
 import { CirclePlus, FileDown, Sparkle } from "lucide-react";
 
 export default function TransformationSummarized() {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
-  const contentRefs = useRef<(HTMLDivElement | null)[]>([]); // Manejo de refs para contenido
-  const iconRefs = useRef<(SVGSVGElement | null)[]>([]); // Manejo de refs para íconos
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const contentRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const iconRefs = useRef<(SVGSVGElement | null)[]>([]);
   const [isDesktop, setIsDesktop] = useState(false);
 
-  // Detectar si es desktop
   useEffect(() => {
     const updateIsDesktop = () => {
       setIsDesktop(window.innerWidth > 1024);
@@ -28,7 +27,6 @@ export default function TransformationSummarized() {
     setOpenIndex(openIndex === index ? null : index);
   };
 
-  // GSAP Animaciones para contenido y íconos
   useEffect(() => {
     contentRefs.current.forEach((content, i) => {
       if (content) {
@@ -210,10 +208,13 @@ export default function TransformationSummarized() {
 
   return (
     <Container className="h-auto pb-40">
-      <div className="flex justify-center mb-20">
-        <span className="uppercase font-onest text-2xl md:text-3xl font-semibold">
+      <div className="flex justify-center mb-10">
+        <span className="uppercase text-center leading-10 font-onest text-2xl md:text-3xl font-semibold">
           nuestro proceso de{" "}
-          <b className="text-gradient-border ">transformación</b> de tu empresa
+          <b className="text-gradient-border w-[90%] md:w-auto">
+            transformación
+          </b>{" "}
+          de tu empresa
         </span>
       </div>
 
@@ -240,14 +241,14 @@ export default function TransformationSummarized() {
             }`}
           >
             <button
-              className={`w-full font-geist text-left px-1 xl:px-4 py-3 text-[2.4rem] leading-[2.4rem] sm:text-[2.6rem] sm:leading-[2.6rem] md:text-6xl sm:leading-6xl lg:text-6xl xl:text-[7rem] xl:leading-[7rem] font-bold flex justify-between items-center ${
+              className={`w-full font-geist text-left px-1 xl:px-4 py-3 text-[2.45rem] leading-[2.45rem] sm:text-[2.6rem] sm:leading-[2.6rem] md:text-6xl sm:leading-6xl lg:text-6xl xl:text-[7rem] xl:leading-[7rem] font-bold flex justify-between items-center ${
                 openIndex === index ? "text-black" : "text-white"
               }`}
               onClick={() => toggleAccordion(index)}
             >
               <span>
                 <span
-                  className={`mr-2 min-w-80 ${
+                  className={`mr-1 md:mr-2 min-w-80 ${
                     openIndex === index ? "text-black" : "text-primario-500"
                   }`}
                 >
@@ -279,8 +280,8 @@ export default function TransformationSummarized() {
         </div>
       ))}
 
-      <div className="flex justify-end mt-10">
-        <button className="uppercase flex gap-4 py-3 px-6 rounded-xl border-primario-500 border-[1px] bg-primario-500/20 items-center font-onest text-2xl font-semibold">
+      <div className="flex justify-center sm:justify-end mt-10">
+        <button className="uppercase flex gap-4 py-3 px-6 rounded-xl border-primario-500 border-[1px] bg-primario-500/20 items-center font-onest text-xl sm:text-2xl font-semibold">
           descargar brochure <FileDown className="text-primario-500" />
         </button>
       </div>
