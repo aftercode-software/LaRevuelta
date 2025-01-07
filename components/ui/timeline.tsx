@@ -39,7 +39,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
       <div ref={ref} className="relative mx-auto pb-20">
         {data.map((item, index) => (
           <div key={index} className="flex flex-col justify-start pt-10">
-            <div className="sticky flex flex-col md:flex-row justify-between w-full pr-2 z-40 bg-[#070707]/80 backdrop-blur-sm items-center top-24 self-start border-[1px] border-primario rounded-2xl mb-3 lg:mb-5 ">
+            <div className="sticky flex flex-col md:flex-row justify-between w-full pr-2 z-40 bg-[#070707]/80 backdrop-blur-sm items-center top-28 self-start border-[1px] border-primario rounded-2xl mb-3 lg:mb-5 ">
               <section className="flex items-center">
                 <div className="h-6 w-6 rounded-full bg-[#070707] border-[5px] border-primario  items-center justify-center hidden md:flex md:absolute left-3 md:left-[1.30rem]" />
 

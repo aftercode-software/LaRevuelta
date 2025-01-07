@@ -1,10 +1,15 @@
-"use server";
 import HeroSections from "@/components/HeroSections";
 import TransformationComplete from "@/components/TrasnformationComplete";
-
+import { Metadata } from "next";
 import React from "react";
 
-export default async function Page() {
+export const metadata: Metadata = {
+  title: "Proceso de Transformación",
+  description:
+    "Conoce nuestra filosofía y los valores que nos impulsan a ofrecer lo mejor.",
+};
+
+export default function Page() {
   return (
     <>
       <HeroSections

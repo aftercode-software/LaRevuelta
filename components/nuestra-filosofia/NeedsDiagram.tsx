@@ -4,13 +4,7 @@ import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import React, {
-  use,
-  useEffect,
-  useLayoutEffect,
-  useRef,
-  useState,
-} from "react";
+import React, { useLayoutEffect, useRef, useState } from "react";
 
 // Register the plugin once
 gsap.registerPlugin(ScrollTrigger);
@@ -54,7 +48,7 @@ export default function NeedsToStoreAnimation() {
         end: "50% top", // When bottom of container hits top of viewport
         scrub: true, // Smooth scrubbing as user scrolls
         pin: true, // Pin the container so that we can see the transition happen
-        markers: true,
+        // markers: true,
       },
     });
 

@@ -1,4 +1,5 @@
 import Container from "@/components/Container";
+import { Metadata } from "next";
 import Link from "next/link";
 import React from "react";
 const inspirations = [
@@ -21,6 +22,12 @@ const inspirations = [
     img: "/inspiracion/dukiysy.webp",
   },
 ];
+
+export const metadata: Metadata = {
+  title: "Nuestra Filosofía",
+  description:
+    "Conoce nuestra filosofía y los valores que nos impulsan a ofrecer lo mejor.",
+};
 
 export default function Page() {
   return (

@@ -1,6 +1,5 @@
 "use client";
-
-import { useGSAP } from "@gsap/react";
+/* eslint-disable @next/next/no-img-element */
 import clsx from "clsx";
 import gsap from "gsap";
 import { Menu } from "lucide-react";
@@ -36,7 +35,7 @@ const NavbarLinks = [
   },
   {
     component: <span>Filosofía</span>,
-    href: "/#filosofia",
+    href: "/nuestra-filosofia",
   },
 ];
 
@@ -96,7 +95,7 @@ export default function Navbar() {
         >
           <img src="/logo.png" alt="Logo" className="h-8 sm:h-10" />
         </Link>
-        <div className="flex justify-center items-center sm:border-l-2 border-zinc-800 px-[5vw] py-5">
+        <div className="flex justify-center items-center sm:border-l-2 border-zinc-800 px-[5vw] ">
           <button onClick={handleClick}>
             <Menu size={32} />
           </button>
@@ -104,18 +103,19 @@ export default function Navbar() {
       </nav>
       <ul
         className={cn(
-          "nav-menu absolute flex flex-col gap-0 *:font-onest *:flex-1 right-[-100vw] bg-black/70 backdrop-blur-md border-zinc-900 border-l-2 border-b-2 h-[85vh] sm:h-[90vh]",
-          "w-full md:w-[50vw] lg:w-[40vw]"
+          "nav-menu absolute flex flex-col gap-0 *:font-onest *:flex-1 right-[-100vw] bg-black/70 backdrop-blur-md border-zinc-900 border-l-2 border-b-2 h-[92vh] max-h-screen",
+          "w-full md:w-[50vw] lg:w-[30vw]"
         )}
       >
         {NavbarLinks.map(({ component, href }, index) => {
-          const pathnameWithHash = `/${window.location.hash}`;
+          const pathnameWithHash =
+            typeof window !== "undefined" ? `/${window.location.hash}` : "";
           const isActive = href === pathname || pathnameWithHash === href;
           return (
             <li key={index}>
               <Link
                 className={cn(
-                  "nav-item flex items-center pl-10 sm:pl-20 h-full w-full text-2xl sm:text-4xl transition-all duration-300",
+                  "nav-item flex items-center pl-10 sm:pl-20 h-full w-full text-3xl sm:text-4xl transition-all duration-200",
                   isActive
                     ? "text-black font-bold bg-primario-400"
                     : "hover:font-semibold hover:bg-black/40 text-white"

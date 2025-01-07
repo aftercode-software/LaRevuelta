@@ -3,12 +3,25 @@
 import React, { useState, useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import Container from "./Container";
-import { CirclePlus, Sparkle } from "lucide-react";
+import { CirclePlus, FileDown, Sparkle } from "lucide-react";
 
 export default function TransformationSummarized() {
   const [openIndex, setOpenIndex] = useState(0);
   const contentRefs = useRef([]);
   const iconRefs = useRef([]);
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const updateIsDesktop = () => {
+      setIsDesktop(window.innerWidth > 1024);
+    };
+
+    updateIsDesktop();
+    window.addEventListener("resize", updateIsDesktop);
+    return () => {
+      window.removeEventListener("resize", updateIsDesktop);
+    };
+  }, []);
 
   const toggleAccordion = (index) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -92,7 +105,7 @@ export default function TransformationSummarized() {
             <img
               src="/transformation/velocimetro.webp"
               alt="rocket"
-              className="absolute -right-20 w-[35%] -bottom-4"
+              className="absolute -right-20 w-[40%] xl:w-[30%] -bottom-4"
             />
           </aside>
         </div>
@@ -136,7 +149,7 @@ export default function TransformationSummarized() {
             <img
               src="/transformation/bars.webp"
               alt="rocket"
-              className="absolute -right-16 w-[38%] xl:w-[32%] -bottom-10 "
+              className="absolute -right-16 w-[38%] xl:w-[25%] -bottom-10 "
             />
           </aside>
         </div>
@@ -181,11 +194,11 @@ export default function TransformationSummarized() {
               </li>
             </ul>
           </aside>
-          <aside className="w-1/2 hidden lg:block">
+          <aside className="w-1/2 z-0 hidden lg:block">
             <img
               src="/transformation/rocket.webp"
               alt="rocket"
-              className="absolute -right-8 xl:right-12 w-[38%] -bottom-2 "
+              className="absolute -right-8 xl:right-12 w-[38%] xl:w-[32%] -bottom-4 xl:-bottom-8"
             />
           </aside>
         </div>
@@ -194,7 +207,14 @@ export default function TransformationSummarized() {
   ];
 
   return (
-    <Container className="h-auto">
+    <Container className="h-auto pb-40">
+      <div className="flex justify-center mb-20">
+        <span className="uppercase font-onest text-2xl md:text-3xl font-semibold">
+          nuestro proceso de{" "}
+          <b className="text-gradient-border ">transformación</b> de tu empresa
+        </span>
+      </div>
+
       {items.map((item, index) => (
         <div
           key={index}
@@ -212,33 +232,38 @@ export default function TransformationSummarized() {
              : "border-t-0 border-b-0"
          }`}
         >
-          <button
-            className={`w-full ${
+          <div
+            className={`w-full z-10 ${
               index !== items.length - 1 ? "-mb-5 lg:-mb-6 xl:-mb-8" : " "
-            } font-geist text-left px-1 xl:px-4 py-3 text-[2.7rem] leading-[2.7rem] lg:text-6xl xl:text-[7rem]  xl:leading-[7rem] font-bold flex justify-between items-center transition-colors duration-300 ${
-              openIndex === index ? "text-black" : "text-white"
             }`}
-            onClick={() => toggleAccordion(index)}
           >
-            <span>
-              <span
-                className={`mr-2 min-w-80  ${
-                  openIndex === index ? "text-black" : "text-primario-500"
-                }`}
-              >
-                {index + 1}
+            <button
+              className={`w-full font-geist text-left px-1 xl:px-4 py-3 text-[2.4rem] leading-[2.4rem] sm:text-[2.6rem] sm:leading-[2.6rem] md:text-6xl sm:leading-6xl lg:text-6xl xl:text-[7rem] xl:leading-[7rem] font-bold flex justify-between items-center ${
+                openIndex === index ? "text-black" : "text-white"
+              }`}
+              onClick={() => toggleAccordion(index)}
+            >
+              <span>
+                <span
+                  className={`mr-2 min-w-80 ${
+                    openIndex === index ? "text-black" : "text-primario-500"
+                  }`}
+                >
+                  {index + 1}
+                </span>
+                {item.title}
               </span>
-              {item.title}
-            </span>
-            <span className="hidden xl:flex flex-col items-start -mt-4 h-full">
-              <CirclePlus
-                ref={(el) => (iconRefs.current[index] = el)}
-                size={60}
-                strokeWidth={1}
-                className="stroke-primario-500"
-              />
-            </span>
-          </button>
+              <span className="hidden md:flex flex-col items-start -mt-4 h-full">
+                <CirclePlus
+                  ref={(el) => (iconRefs.current[index] = el)}
+                  size={isDesktop ? 60 : 40}
+                  strokeWidth={1}
+                  className="stroke-primario-500"
+                />
+              </span>
+            </button>
+          </div>
+
           <div
             ref={(el) => (contentRefs.current[index] = el)}
             className="px-2 lg:px-12 opacity-0 *:font-geist"
@@ -247,6 +272,12 @@ export default function TransformationSummarized() {
           </div>
         </div>
       ))}
+
+      <div className="flex justify-end mt-10">
+        <button className="uppercase flex gap-4 py-3 px-6 rounded-xl border-primario-500 border-[1px] bg-primario-500/20 items-center font-onest text-2xl font-semibold">
+          descargar brochure <FileDown className="text-primario-500" />
+        </button>
+      </div>
     </Container>
   );
 }

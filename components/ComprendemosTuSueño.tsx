@@ -3,7 +3,7 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -136,65 +136,67 @@ function TituloTop() {
 }
 
 function WorldSection() {
-  useGSAP(
-    () => {
-      gsap.from(".world", {
-        y: 200,
-        scale: 0.95,
-        filter: "grayscale(100%)",
-        ease: "power1.inOut",
-        scrollTrigger: {
-          trigger: ".seccion-comprendemos",
-          start: "30% bottom",
-          end: "50% 70%",
-          scrub: 1,
-        },
-      });
+  const sectionRef = useRef(null);
 
-      gsap.from(".cloud-world-1", {
-        y: 100,
-        x: 100,
-        opacity: 0,
-        scale: 1.05,
-        ease: "power1.inOut",
-        scrollTrigger: {
-          trigger: ".seccion-comprendemos",
-          start: "30% bottom",
-          end: "50% 70%",
-          scrub: 1,
-        },
-      });
-      gsap.from(".cloud-world-2", {
-        y: 100,
-        x: -100,
-        opacity: 0,
-        scale: 1.05,
-        ease: "power1.inOut",
-        scrollTrigger: {
-          trigger: ".seccion-comprendemos",
-          start: "30% bottom",
-          end: "50% 70%",
-          scrub: 1,
-        },
-      });
+  useEffect(() => {
+    const section = sectionRef.current;
 
-      gsap.from(".helper-text", {
-        opacity: 0,
-        y: 30,
-        ease: "power1.out",
-        stagger: 1,
-        scrollTrigger: {
-          trigger: ".world-section",
-          start: "45% bottom",
-          end: "40% 70%",
-          scrub: 1,
-        },
-      });
-    },
-    {
-      scope: ".world-section",
-    }
-  );
+    if (!section) return; // Asegura que el DOM esté listo
+
+    gsap.from(".world", {
+      y: 200,
+      scale: 0.95,
+      filter: "grayscale(100%)",
+      ease: "power1.inOut",
+      scrollTrigger: {
+        trigger: section,
+        start: "30% bottom",
+        end: "50% 70%",
+        scrub: 1,
+      },
+    });
+
+    gsap.from(".cloud-world-1", {
+      y: 100,
+      x: 100,
+      opacity: 0,
+      scale: 1.05,
+      ease: "power1.inOut",
+      scrollTrigger: {
+        trigger: section,
+        start: "30% bottom",
+        end: "50% 70%",
+        scrub: 1,
+      },
+    });
+
+    gsap.from(".cloud-world-2", {
+      y: 100,
+      x: -100,
+      opacity: 0,
+      scale: 1.05,
+      ease: "power1.inOut",
+      scrollTrigger: {
+        trigger: section,
+        start: "30% bottom",
+        end: "50% 70%",
+        scrub: 1,
+      },
+    });
+
+    gsap.from(".helper-text", {
+      opacity: 0,
+      y: 30,
+      ease: "power1.out",
+      stagger: 1,
+      scrollTrigger: {
+        trigger: section,
+        start: "45% bottom",
+        end: "40% 70%",
+        scrub: 1,
+      },
+    });
+  }, []); // Ejecuta solo una vez al montar
 
   return (
     <section className="world-section relative w-full">

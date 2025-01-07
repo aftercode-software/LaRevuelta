@@ -2,18 +2,18 @@
 
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import React from "react";
+import React, { useEffect } from "react";
 import Container from "./Container";
 import NosObsesionamos from "./NosObsesionamos";
 
 export default function Hero() {
-  useGSAP(() => {
+  useEffect(() => {
     gsap.from(".background-hero", {
       opacity: 0,
       duration: 0.4,
       ease: "power4.inOut",
     });
-  });
+  }, []);
 
   return (
     <div className="mt-[8vh] background-hero text-4xl w-full h-screen sm:h-[90vh]">

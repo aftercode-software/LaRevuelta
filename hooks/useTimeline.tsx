@@ -1,5 +1,5 @@
 import { useGSAP } from "@gsap/react";
-import { gsap, snap } from "gsap";
+import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { createContext, useContext, useState } from "react";
 
@@ -34,7 +34,7 @@ export const TimelineProvider = ({
         pin: true,
         scrub: 0.8,
         autoRemoveChildren: true,
-        markers: true,
+        // markers: true,
       },
     };
     if (defaultConfig) config = defaultConfig;
