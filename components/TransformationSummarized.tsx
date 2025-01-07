@@ -6,11 +6,12 @@ import Container from "./Container";
 import { CirclePlus, FileDown, Sparkle } from "lucide-react";
 
 export default function TransformationSummarized() {
-  const [openIndex, setOpenIndex] = useState(0);
-  const contentRefs = useRef([]);
-  const iconRefs = useRef([]);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const contentRefs = useRef<(HTMLDivElement | null)[]>([]); // Manejo de refs para contenido
+  const iconRefs = useRef<(SVGSVGElement | null)[]>([]); // Manejo de refs para íconos
   const [isDesktop, setIsDesktop] = useState(false);
 
+  // Detectar si es desktop
   useEffect(() => {
     const updateIsDesktop = () => {
       setIsDesktop(window.innerWidth > 1024);
@@ -23,10 +24,11 @@ export default function TransformationSummarized() {
     };
   }, []);
 
-  const toggleAccordion = (index) => {
+  const toggleAccordion = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
+  // GSAP Animaciones para contenido y íconos
   useEffect(() => {
     contentRefs.current.forEach((content, i) => {
       if (content) {
@@ -255,7 +257,9 @@ export default function TransformationSummarized() {
               </span>
               <span className="hidden md:flex flex-col items-start -mt-4 h-full">
                 <CirclePlus
-                  ref={(el) => (iconRefs.current[index] = el)}
+                  ref={(el) => {
+                    iconRefs.current[index] = el;
+                  }}
                   size={isDesktop ? 60 : 40}
                   strokeWidth={1}
                   className="stroke-primario-500"
@@ -265,7 +269,9 @@ export default function TransformationSummarized() {
           </div>
 
           <div
-            ref={(el) => (contentRefs.current[index] = el)}
+            ref={(el) => {
+              contentRefs.current[index] = el;
+            }}
             className="px-2 lg:px-12 opacity-0 *:font-geist"
           >
             {item.content}
