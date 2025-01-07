@@ -53,7 +53,7 @@ function EscenaCirculoRecursivo() {
 
   return (
     <section className="container-circulo-recursivo relative flex flex-col justify-center w-full h-screen bg-black overflow-hidden">
-      <Container className="w-[90vw] h-fit mb-20">
+      <Container className="w-[90vw] h-fit mb-4">
         <span className="block first-text-rec text-3xl font-onest">
           Pero lo verdaderamente gratificante es que <br /> este sistema es{" "}
           <GlowingText>infinito</GlowingText> y{" "}

@@ -3,7 +3,6 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import React from "react";
-import SplitType from "split-type";
 import Container from "./Container";
 import NosObsesionamos from "./NosObsesionamos";
 
@@ -17,8 +16,8 @@ export default function Hero() {
   });
 
   return (
-    <div className="background-hero text-4xl w-full h-screen">
-      <Container className="flex flex-col justify-center">
+    <div className="mt-[8vh] background-hero text-4xl w-full h-screen sm:h-[90vh]">
+      <Container className="flex flex-col pt-[20%] lg:pt-[10%]">
         <div>
           <HeroBadge />
           <HeroTitle />
@@ -44,12 +43,7 @@ function HeroBadge() {
   });
 
   return (
-    <span
-      style={{
-        boxShadow: "0 0 0.5em #FCF532",
-      }}
-      className="block w-fit vamos-posta text-base sm:text-lg rounded-full py-1 px-3 border-2 border-primario-700 font-onest font-bold"
-    >
+    <span className="block w-fit vamos-posta text-base sm:text-lg rounded-full py-1 px-3 border border-primario-300 font-onest font-bold">
       VAMOS POSTA 👈
     </span>
   );
@@ -82,7 +76,7 @@ function HeroTitle() {
     );
   });
   return (
-    <h1 className="text-5xl xs:text-6xl xl:text-7xl font-fustat mt-4">
+    <h1 className="text-5xl xs:text-5xl xl:text-6xl font-fustat mt-4">
       <span className="block hero-title">
         Rompemos{" "}
         <span

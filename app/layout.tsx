@@ -1,3 +1,4 @@
+import Navbar from "@/components/Navbar";
 import type { Metadata } from "next";
 import { Fustat, Geist, Geist_Mono, Onest } from "next/font/google";
 import localFont from "next/font/local";
@@ -33,6 +34,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${fustat.variable} ${onest.variable} antialiased`}
       >
+        <Navbar />
         {children}
       </body>
     </html>
