@@ -1,7 +1,8 @@
+import Container from "@/components/Container";
 import HeroSections from "@/components/HeroSections";
 import React from "react";
 
-export default function InspirationLayout({
+export default function ClientsLayout({
   children,
 }: {
   children: React.ReactNode;
@@ -9,13 +10,12 @@ export default function InspirationLayout({
   return (
     <>
       <HeroSections
-        url={"/inspiracion/hero-inspiracion.webp"}
-        emoji="💡"
-        title="Qué nos "
-        titleBold="inspira"
+        url={"/images/clientes/hero.png"}
+        emoji="🤝"
+        titleBold="Clientes"
         desc="Lorem ipsum dolores amet lorem ipsum dolores amet lorem ipsum dolores amet lorem ipsum dolores amet"
       />
-      <main className="">{children}</main>
+      <Container tag="main">{children}</Container>
     </>
   );
 }

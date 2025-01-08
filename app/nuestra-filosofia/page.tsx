@@ -12,8 +12,8 @@ export default function page() {
       <HeroSections
         url={"/transformation/hero-transformacion.webp"}
         emoji="🛠️"
-        tittle="Proceso de "
-        tittleBold="transformación"
+        title="Proceso de "
+        titleBold="transformación"
         desc="Lorem ipsum dolores amet lorem ipsum dolores amet lorem ipsum dolores amet lorem ipsum dolores amet"
       />
       <div>
