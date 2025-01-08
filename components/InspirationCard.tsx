@@ -10,6 +10,7 @@ export default function InspirationCard({ inspo }: { inspo: Inspiration }) {
   const cardRef = useRef<HTMLAnchorElement | null>(null);
   const imgRef = useRef<HTMLImageElement | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
+
   const [play, { stop }] = useSound(inspo.audioHover, {
     onend: () => setIsPlaying(false),
     volume: 0.05,
@@ -23,7 +24,11 @@ export default function InspirationCard({ inspo }: { inspo: Inspiration }) {
         { opacity: 1, y: 0, duration: 1, ease: "power2.out" }
       );
     }
-  }, []);
+
+    return () => {
+      stop();
+    };
+  }, [stop]);
 
   const handleMouseEnter = () => {
     if (imgRef.current && inspo.slug === "the-beatles") {
@@ -57,7 +62,7 @@ export default function InspirationCard({ inspo }: { inspo: Inspiration }) {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <span className="bg-primario-400 z-30 absolute p-2 rounded-full right-5 top-6">
+      <span className="bg-primario-400  z-30 absolute p-1 rounded-full right-5 top-6">
         <ArrowUpRight className="text-black" />
       </span>
       <img
@@ -65,14 +70,14 @@ export default function InspirationCard({ inspo }: { inspo: Inspiration }) {
         alt="Background"
         className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 saturate-0 group-hover:saturate-100 transition-all duration-500 rounded-xl"
       />
-      <div className="absolute inset-0 z-20 bg-black bg-opacity-70 group-hover:bg-opacity-60 transition-all duration-500"></div>
+      <div className="absolute inset-0 z-20 bg-black bg-opacity-70 group-hover:bg-opacity-60 transition-all duration-500" />
 
       {inspo.imgAbove && (
         <img
           ref={imgRef}
           src={inspo.imgAbove}
           alt={inspo.title}
-          className={`hidden sm:block sm:relative z-30 w-[70%] sm:pt-5 h-[70%] object-contain saturate-0 group-hover:saturate-100 ${
+          className={`hidden sm:block sm:relative z-30 w-[70%] sm:pt-5 h-[65%] object-contain saturate-0 group-hover:saturate-100 ${
             inspo.slug === "the-beatles" ? "transition-all duration-500" : ""
           }`}
         />

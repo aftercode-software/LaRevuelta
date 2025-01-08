@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import type { Metadata } from "next";
 import { Fustat, Geist, Onest } from "next/font/google";
 import "./globals.css";
+import Footer from "@/components/Footer";
 
 const fustat = Fustat({
   variable: "--font-fustat",
@@ -59,6 +60,7 @@ export default function RootLayout({
       >
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );

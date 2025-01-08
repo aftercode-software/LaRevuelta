@@ -3,7 +3,7 @@ import { Metadata } from "next";
 import React from "react";
 
 export const metadata: Metadata = {
-  title: "Nuestra Filosofía",
+  title: "Que nos inspira",
   description:
     "Conoce nuestra filosofía y los valores que nos impulsan a ofrecer lo mejor.",
 };
@@ -20,9 +20,9 @@ export default function InspirationLayout({
         emoji="💡"
         title="Qué nos "
         titleBold="inspira"
-        desc="Lorem ipsum dolores amet lorem ipsum dolores amet lorem ipsum dolores amet lorem ipsum dolores amet"
+        desc="Desde los rebeldes del deporte hasta los visionarios de la música y el arte, nos inspiran quienes rompen moldes, cambian las reglas y transforman lo cotidiano en algo extraordinario."
       />
-      <main className="">{children}</main>
+      <main>{children}</main>
     </>
   );
 }

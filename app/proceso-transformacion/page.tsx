@@ -17,7 +17,7 @@ export default function Page() {
         emoji="🛠️"
         title="Proceso de "
         titleBold="transformación"
-        desc="Lorem ipsum dolores amet lorem ipsum dolores amet lorem ipsum dolores amet lorem ipsum dolores amet"
+        desc="Conocé cómo llevamos a tu empresa al siguiente nivel. Desde un diagnóstico profundo hasta la creación de estrategias innovadoras, te acompañamos en cada etapa para alcanzar el éxito y más allá."
       />
       <div>
         <TransformationComplete />

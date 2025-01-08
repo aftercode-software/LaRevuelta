@@ -5,8 +5,6 @@ export default function HeroSections({
   emoji,
   title,
   titleBold,
-  title,
-  titleBold,
   desc,
 }: {
   url: string;
@@ -32,7 +30,7 @@ export default function HeroSections({
           {title && title}
           <span className="text-primario">{titleBold && titleBold}</span>
         </h2>
-        <p className="text-lg md:text-xl xl:max-w-[45%] font-geist">{desc}</p>
+        <p className="text-lg md:text-xl xl:max-w-[50%] font-geist">{desc}</p>
       </Container>
     </div>
   );

@@ -10,7 +10,7 @@ import useSound from "use-sound";
 
 interface Inspiration {
   slug: string;
-
+  title: string;
   secondImg?: string;
   audioHover: string;
   renderContent({
@@ -26,6 +26,7 @@ interface Inspiration {
 
 const data: Inspiration[] = [
   {
+    title: "Nike - Innovación y liderazgo",
     slug: "nike",
     audioHover: "/audio/Humble cut.mp3",
     renderContent: ({ ref, tittleRef, descRef }) => (
@@ -107,6 +108,7 @@ const data: Inspiration[] = [
     ),
   },
   {
+    title: "The Beatles - Revolución Musical",
     slug: "the-beatles",
     audioHover: "/audio/Penny Lane Full.mp3",
     renderContent: ({ ref, tittleRef, descRef }) => (
@@ -166,6 +168,7 @@ const data: Inspiration[] = [
     ),
   },
   {
+    title: "YSY y Duki - Movimiento Urbano",
     slug: "ysy-y-duki",
     audioHover: "/audio/Vuelta a la Luna cut.mp3",
     renderContent: ({ ref, tittleRef, descRef }) => (
@@ -256,6 +259,14 @@ export default function InspirationDetailPage() {
     volume: 0.03,
     loop: true,
   });
+
+  useEffect(() => {
+    if (inspiration) {
+      document.title = inspiration.title;
+    } else {
+      document.title = "Que nos inspira";
+    }
+  }, [inspiration]);
 
   useEffect(() => {
     const playOnUserInteraction = () => {
