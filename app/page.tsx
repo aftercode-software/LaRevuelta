@@ -1,7 +1,11 @@
 import ComprendemosTuSueño from "@/components/ComprendemosTuSueño";
 import Hero from "@/components/Hero";
-import NuestraFilosofia from "@/components/nuestra-filosofia/NuestraFilosofia";
 import TransformationSummarized from "@/components/TransformationSummarized";
+import dynamic from "next/dynamic";
+
+const NuestraFilosofia = dynamic(
+  () => import("@/components/nuestra-filosofia/NuestraFilosofia")
+);
 
 export default function Home() {
   return (

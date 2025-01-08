@@ -36,14 +36,14 @@ export default function ClienteCard({
       <img
         src={logo}
         alt={name}
-        className="absolute w-16 lg:w-24 group-hover:scale-110 transition-all duration-300 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+        className="absolute w-16 lg:w-24 group-hover:scale-125 transition-all duration-200 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
       />
       <div className="flex flex-col gap-2 absolute bottom-4 left-8">
         <div className="flex gap-2">
           <Pill text={category} />
           <Pill text={year} />
         </div>
-        <h2 className="font-onest text-primario-500 text-3xl font-bold">
+        <h2 className="font-onest text-primario-400 text-3xl font-bold">
           {name}
         </h2>
       </div>

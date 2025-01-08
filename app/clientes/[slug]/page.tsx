@@ -1,23 +1,36 @@
+import {
+  default as IpcPage,
+  default as NutriterraPage,
+} from "@/components/clientes/NutriterraPage";
 import StatCard from "@/components/clientes/StatCard";
 import Container from "@/components/Container";
 import { Flag } from "lucide-react";
 import React from "react";
 import { Cliente, clientes } from "../page";
 
-export default function page({ params }: { params: { slug: string } }) {
+const pages = {
+  nutriterra: <NutriterraPage />,
+};
+
+export default async function page({ params }: { params: { slug: string } }) {
+  const { slug } = await params;
+
   const cliente = clientes.find(
-    (cliente) => cliente.href === `/clientes/${params.slug}`
+    (cliente) => cliente.href === `/clientes/${slug}`
   );
 
   return (
-    <main className="mt-10">
-      <div className="flex gap-8">
-        <FirstSection cliente={cliente} />
-        <aside className="w-[30vw]">
-          <div className="relative rounded-xl z-40 overflow-hidden h-[50vh] pointer-events-none">
+    <main className="mt-10 font-onest">
+      <section className="flex flex-col-reverse lg:flex-row gap-8">
+        <div className="flex flex-col gap-12 flex-1">
+          <FirstSection cliente={cliente} />
+          <StartingPoint startingPoint={cliente?.startingPoint} />
+        </div>
+        <aside className="w-full lg:w-[25vw]">
+          <div className="relative rounded-xl z-40 overflow-hidden h-[30vh] lg:h-[50vh] pointer-events-none">
             <div className="absolute inset-0 bg-black/50 z-10"></div>
             <img
-              className="object-cover h-full z-10"
+              className="object-cover w-full h-full z-10"
               src={cliente?.image}
               alt={cliente?.name}
             />
@@ -28,38 +41,42 @@ export default function page({ params }: { params: { slug: string } }) {
             />
           </div>
         </aside>
-      </div>
+      </section>
+      <div className="mt-10">{pages[slug]}</div>
     </main>
   );
 }
 
 function FirstSection({ cliente }: { cliente: Cliente }) {
   return (
-    <section className="flex-1">
+    <section className="">
       <h1 className="text-5xl text-primario-500 font-bold mb-2">
         {cliente?.name}
       </h1>
       <p className="text-xl">{cliente?.description}</p>
-      <div className="flex gap-4 mt-6">
-        <StatCard
-          description="nuevos prospectos comerciales generados"
-          value="+2000"
-        />
-        <StatCard description="aumento de flujo de personas" value="+500%" />
-        <StatCard description="aumento en la base de datos" value="+25%" />
+      <div className="flex flex-wrap gap-4 mt-6">
+        {cliente?.stats.map((stat) => (
+          <StatCard
+            description={stat.description}
+            value={stat.title}
+            key={stat.title}
+          />
+        ))}
       </div>
     </section>
   );
 }
 
-function StartingPoint({ startingPoint }: { startingPoint: string }) {
+function StartingPoint({ startingPoint }: { startingPoint: React.ReactNode }) {
   return (
     <section>
-      <h2>
-        <span>
-          <Flag />
+      <h2 className="font-onest font-semibold text-primario-300 text-3xl flex items-center gap-2 mb-4">
+        <span className="bg-primario-300 rounded-full p-2">
+          <Flag className="text-primario-950" size={20} strokeWidth={2} />
         </span>
+        <span>Punto de partida</span>
       </h2>
+      <p className="text-xl font-onest">{startingPoint}</p>
     </section>
   );
 }

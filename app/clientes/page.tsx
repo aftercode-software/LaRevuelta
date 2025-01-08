@@ -9,6 +9,11 @@ export interface Cliente {
   category: string;
   year: string;
   description: React.ReactNode;
+  startingPoint: React.ReactNode;
+  stats: {
+    title: string;
+    description: string;
+  }[];
 }
 
 export const clientes: Cliente[] = [
@@ -27,6 +32,32 @@ export const clientes: Cliente[] = [
         planificada.
       </>
     ),
+    stats: [
+      {
+        title: "+2000",
+        description: "nuevos prospectos comerciales generados",
+      },
+      {
+        title: "+500%",
+        description: "aumento de flujo de personas",
+      },
+      {
+        title: "+25%",
+        description: "aumento en la base de datos",
+      },
+    ],
+    startingPoint: (
+      <>
+        Nutriterra nació con una misión:{" "}
+        <b>ofrecer soluciones nutricionales innovadoras para cultivos</b>. Este
+        espíritu de vanguardia impulsó su crecimiento en regiones clave como{" "}
+        <b>Mendoza</b>, <b>San Juan</b>, <b>Tucumán</b>, <b>La Rioja</b>y
+        provincias conexas. Sin embargo, el desafío era{" "}
+        <b>traducir ese progreso en una estrategia robusta</b> que destacara los
+        atributos diferenciales de la marca, consolidando su estructura
+        comercial en plazas estratégicas mediante acciones coordinadas.
+      </>
+    ),
   },
   {
     name: "Nutriterra",
@@ -43,6 +74,31 @@ export const clientes: Cliente[] = [
         planificada.
       </>
     ),
+    stats: [
+      {
+        title: "+2000",
+        description: "nuevos prospectos comerciales generados",
+      },
+      {
+        title: "+500%",
+        description: "aumento de flujo de personas",
+      },
+      {
+        title: "+25%",
+        description: "aumento en la base de datos",
+      },
+    ],
+    startingPoint: (
+      <>
+        Nutriterra nació con una misión: ofrecer soluciones nutricionales
+        innovadoras para cultivos. Este espíritu de vanguardia impulsó su
+        crecimiento en regiones clave como Mendoza, San Juan, Tucumán, La Rioja
+        y provincias conexas. Sin embargo, el desafío era traducir ese progreso
+        en una estrategia robusta que destacara los atributos diferenciales de
+        la marca, consolidando su estructura comercial en plazas estratégicas
+        mediante acciones coordinadas.
+      </>
+    ),
   },
   {
     name: "Lila Software",
@@ -57,6 +113,23 @@ export const clientes: Cliente[] = [
         donde tenía presencia comercial, para atenuar amenazas de la competencia
         y<b>consolidar su posición estratégica</b> de cara a la expansión
         planificada.
+      </>
+    ),
+    stats: [
+      {
+        title: "+2000",
+        description: "nuevos prospectos comerciales generados",
+      },
+    ],
+    startingPoint: (
+      <>
+        Nutriterra nació con una misión: ofrecer soluciones nutricionales
+        innovadoras para cultivos. Este espíritu de vanguardia impulsó su
+        crecimiento en regiones clave como Mendoza, San Juan, Tucumán, La Rioja
+        y provincias conexas. Sin embargo, el desafío era traducir ese progreso
+        en una estrategia robusta que destacara los atributos diferenciales de
+        la marca, consolidando su estructura comercial en plazas estratégicas
+        mediante acciones coordinadas.
       </>
     ),
   },

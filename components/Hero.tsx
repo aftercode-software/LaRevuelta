@@ -7,7 +7,7 @@ import Container from "./Container";
 import NosObsesionamos from "./NosObsesionamos";
 
 export default function Hero() {
-  useEffect(() => {
+  useGSAP(() => {
     gsap.from(".background-hero", {
       opacity: 0,
       duration: 0.4,
