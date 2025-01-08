@@ -21,7 +21,8 @@
     "recharts": "^2.15.0",
     "split-type": "^0.3.4",
     "tailwind-merge": "^2.6.0",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "use-sound": "^4.0.3"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

@@ -6,11 +6,13 @@ import Link from "next/link";
 import { CircleArrowLeft, Volume2, VolumeOff } from "lucide-react";
 import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
+import useSound from "use-sound";
 
 interface Inspiration {
   slug: string;
-  img: string;
+
   secondImg?: string;
+  audioHover: string;
   renderContent({
     ref,
     tittleRef,
@@ -25,8 +27,7 @@ interface Inspiration {
 const data: Inspiration[] = [
   {
     slug: "nike",
-    img: "/inspiracion/phil_knight.webp",
-    secondImg: "/inspiracion/nike_logo.webp",
+    audioHover: "/audio/Humble cut.mp3",
     renderContent: ({ ref, tittleRef, descRef }) => (
       <div className="flex xl:flex-row flex-col">
         <aside className="xl:w-[60%]">
@@ -107,7 +108,7 @@ const data: Inspiration[] = [
   },
   {
     slug: "the-beatles",
-    img: "/inspiracion/vinyl.webp",
+    audioHover: "/audio/Penny Lane Full.mp3",
     renderContent: ({ ref, tittleRef, descRef }) => (
       <div className="flex xl:flex-row flex-col">
         <aside className="xl:w-[55%]">
@@ -166,7 +167,7 @@ const data: Inspiration[] = [
   },
   {
     slug: "ysy-y-duki",
-    img: "",
+    audioHover: "/audio/Vuelta a la Luna cut.mp3",
     renderContent: ({ ref, tittleRef, descRef }) => (
       <div className="flex xl:flex-row flex-col">
         <aside className="xl:w-[70%]">
@@ -250,6 +251,29 @@ export default function InspirationDetailPage() {
   const backButtonRef = useRef<HTMLAnchorElement>(null!);
   const musicButtonRef = useRef<HTMLButtonElement>(null!);
 
+  const [isMuted, setIsMuted] = useState(false);
+  const [play, { stop, sound }] = useSound(inspiration.audioHover, {
+    volume: 0.03,
+    loop: true,
+  });
+
+  useEffect(() => {
+    const playOnUserInteraction = () => {
+      play();
+      window.removeEventListener("click", playOnUserInteraction);
+      window.removeEventListener("mousemove", playOnUserInteraction);
+    };
+
+    window.addEventListener("click", playOnUserInteraction);
+    window.addEventListener("mousemove", playOnUserInteraction);
+
+    return () => {
+      stop();
+      window.removeEventListener("click", playOnUserInteraction);
+      window.removeEventListener("mousemove", playOnUserInteraction);
+    };
+  }, [inspiration, play, stop]);
+
   useEffect(() => {
     if (
       inspiration &&
@@ -294,6 +318,12 @@ export default function InspirationDetailPage() {
     }
   }, [inspiration]);
 
+  useEffect(() => {
+    if (sound) {
+      sound.volume(isMuted ? 0 : 0.03);
+    }
+  }, [isMuted, sound]);
+
   if (!inspiration) {
     return <p>No se encontró contenido para esta página.</p>;
   }
@@ -304,7 +334,11 @@ export default function InspirationDetailPage() {
     <Container>
       <div className="flex justify-between items-center">
         <BackButton ref={backButtonRef} />
-        <MusicButton ref={musicButtonRef} />
+        <MusicButton
+          ref={musicButtonRef}
+          isMuted={isMuted}
+          setIsMuted={setIsMuted}
+        />
       </div>
       {renderContent({ ref: contentRef, tittleRef, descRef })}
     </Container>
@@ -322,9 +356,13 @@ const BackButton = React.forwardRef<HTMLAnchorElement>((_, ref) => (
 
 BackButton.displayName = "BackButton";
 
-const MusicButton = React.forwardRef<HTMLButtonElement>((_, ref) => {
-  const [isMuted, setIsMuted] = useState(false);
-
+const MusicButton = React.forwardRef<
+  HTMLButtonElement,
+  {
+    isMuted: boolean;
+    setIsMuted: React.Dispatch<React.SetStateAction<boolean>>;
+  }
+>(({ isMuted, setIsMuted }, ref) => {
   const handleClick = () => {
     setIsMuted((prev) => !prev);
 
@@ -332,7 +370,13 @@ const MusicButton = React.forwardRef<HTMLButtonElement>((_, ref) => {
       gsap.fromTo(
         ref.current,
         { scale: 1 },
-        { scale: 1.1, duration: 0.2, ease: "power1.out", yoyo: true, repeat: 1 }
+        {
+          scale: 1.1,
+          duration: 0.2,
+          ease: "power1.out",
+          yoyo: true,
+          repeat: 1,
+        }
       );
     }
   };

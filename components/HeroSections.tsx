@@ -5,6 +5,8 @@ export default function HeroSections({
   emoji,
   title,
   titleBold,
+  title,
+  titleBold,
   desc,
 }: {
   url: string;
@@ -24,7 +26,7 @@ export default function HeroSections({
 
       <div className="absolute md:hidden inset-0 bg-black/60"></div>
 
-      <Container className="relative z-10 flex flex-col items-left justify-end h-[80%] ">
+      <Container className="relative z-10 flex flex-col items-left justify-end h-[80%]">
         <p className="text-3xl mb-3">{emoji}</p>
         <h2 className="text-4xl md:text-5xl font-bold mb-4 font-fustat">
           {title && title}
