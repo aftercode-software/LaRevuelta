@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 "use client";
 import { ArrowUpRightIcon } from "lucide-react";
 import Link from "next/link";
@@ -6,15 +5,7 @@ import React from "react";
 import Pill from "./Pill";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-
-interface ClienteCardProps {
-  name: string;
-  image: string;
-  logo: string;
-  href: string;
-  category: string;
-  year: string;
-}
+import { ClienteCardProps } from "@/interfaces/clientes";
 
 export default function ClienteCard({
   name,
@@ -29,8 +20,8 @@ export default function ClienteCard({
     if (cardRef.current) {
       gsap.from(cardRef.current, {
         opacity: 0,
-        y: 50,
-        duration: 1,
+        y: 30,
+        duration: 0.5,
         ease: "ease",
       });
     }
@@ -52,7 +43,7 @@ export default function ClienteCard({
       <img
         src={logo}
         alt={name}
-        className="absolute w-16 lg:w-28 group-hover:scale-125  top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+        className="absolute w-16 lg:w-28 group-hover:scale-125 duration-300 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
       />
       <div className="flex flex-col gap-2 absolute bottom-4 left-8">
         <div className="flex gap-2">

@@ -2,14 +2,8 @@ import ComprendemosTuSueño from "@/components/ComprendemosTuSueño";
 import Container from "@/components/Container";
 import Hero from "@/components/Hero";
 import NuestraFilosofia from "@/components/nuestra-filosofia/NuestraFilosofia";
-import TransformationSummarized from "@/components/TransformationSummarized";
-import {
-  ArrowDown,
-  ArrowDownAZ,
-  ArrowDownToDot,
-  ChevronDown,
-  ChevronsDown,
-} from "lucide-react";
+import TransformationSummarized from "@/components/transformacion/TransformationSummarized";
+import { ChevronsDown } from "lucide-react";
 
 export default function Home() {
   return (
@@ -22,7 +16,7 @@ export default function Home() {
           Conocé nuestra{" "}
           <span className="text-primario-500 font-bold">filosofía</span>
         </h2>
-        <ChevronsDown className="text-primario-500 animate-bounce" size={42} />
+        <ChevronsDown className="text-primario-500 animate-bounce" size={60} />
       </Container>
       <NuestraFilosofia />
     </div>

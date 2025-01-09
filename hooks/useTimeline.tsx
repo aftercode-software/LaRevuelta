@@ -35,7 +35,7 @@ export const TimelineProvider = ({
         end: end || "+=1400",
         pin: true,
         scrub: 1,
-        markers: true,
+        markers: false,
       },
     };
     if (defaultConfig) config = defaultConfig;
