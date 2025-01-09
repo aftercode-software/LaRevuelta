@@ -14,7 +14,7 @@ export default function HeroSections({
   desc: string;
 }) {
   return (
-    <div className="relative w-full h-[45vh] xl:mb-2 xl:h-[50vh] mt-[8dvh] text-white">
+    <div className="relative w-full h-[45vh] xl:mb-4 xl:h-[50vh] mt-[8dvh] text-white">
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{

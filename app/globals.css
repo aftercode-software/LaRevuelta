@@ -24,16 +24,6 @@ body {
     url("/images/hero.jpg") no-repeat center center / cover;
 }
 
-.background-inspiracion {
-  background: radial-gradient(
-      at 50% 5%,
-      rgba(0, 0, 0, 0) 0%,
-      rgba(7, 7, 7, 0.6) 50%,
-      rgba(7, 7, 7, 1) 80%
-    ),
-    url("/images/que-nos-inspira/header.jpg") no-repeat center center / cover;
-}
-
 @media (max-width: 850px) {
   .background-hero {
     background: radial-gradient(
@@ -48,13 +38,12 @@ body {
 .text-gradient-border {
   position: relative;
   display: inline-block;
-  padding: 0.5rem 1rem;
+  padding: 0.4rem 1.2rem;
   text-transform: uppercase;
-
   border-radius: 50px;
   background: linear-gradient(black, black) padding-box,
-    linear-gradient(90deg, #555555 15%, #fcf532 100%) border-box;
-  border: 3px solid transparent;
+    linear-gradient(90deg, #313131 15%, #fcf532 100%) border-box;
+  border: 2px solid transparent;
 }
 
 @media (max-width: 768px) {
@@ -67,6 +56,6 @@ body {
       url("/images/hero.jpg") no-repeat 70% center / cover;
   }
   .text-gradient-border {
-    padding: 0.5rem 1rem;
+    padding: 0.2rem 1.2rem;
   }
 }

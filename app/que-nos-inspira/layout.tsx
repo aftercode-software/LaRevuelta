@@ -5,7 +5,7 @@ import React from "react";
 export const metadata: Metadata = {
   title: "Que nos inspira",
   description:
-    "Conoce nuestra filosofía y los valores que nos impulsan a ofrecer lo mejor.",
+    "Desde los rebeldes del deporte hasta los visionarios de la música y el arte, nos inspiran quienes rompen moldes, cambian las reglas y transforman lo cotidiano en algo extraordinario.",
 };
 
 export default function InspirationLayout({
@@ -16,13 +16,13 @@ export default function InspirationLayout({
   return (
     <>
       <HeroSections
-        url={"/inspiracion/hero-inspiracion.png"}
+        url={"/hero/inspiracion.webp"}
         emoji="💡"
         title="Qué nos "
         titleBold="inspira"
         desc="Desde los rebeldes del deporte hasta los visionarios de la música y el arte, nos inspiran quienes rompen moldes, cambian las reglas y transforman lo cotidiano en algo extraordinario."
       />
-      <main>{children}</main>
+      <div className="min-h-[50vh]">{children}</div>
     </>
   );
 }

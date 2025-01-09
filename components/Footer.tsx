@@ -11,7 +11,7 @@ export default function Footer() {
             <b className="font-bold text-lg">© {currentYear} La Revuelta</b>.
             Todos los derechos reservados.
           </span>
-          <ul className="flex flex-col md:flex-row flex-wrap items-start md:items-center mt-3 text-lg font-medium text-black sm:mt-0 space-y-1 md:space-y-0 md:space-x-4">
+          <ul className="flex flex-col md:flex-row flex-wrap items-start md:items-center mt-3 text-lg font-medium *:md:list-none text-black sm:mt-0 space-y-1 md:space-y-0 md:space-x-4">
             <li className="list-disc ml-6">
               <Link href="#" className="hover:font-bold duration-150">
                 Nuestra inspiración
@@ -35,7 +35,7 @@ export default function Footer() {
           </ul>
         </div>
       </footer>
-      <div className="flex flex-col md:flex-row gap-1 md:gap-2 items-start p-4 text-left md:justify-center">
+      <div className="flex flex-col md:flex-row gap-1 md:gap-2 items-start pt-2 p-4 text-left md:justify-center">
         <span className="font-geist text-white md:text-base">
           Orgullosamente diseñado y desarrollado por
         </span>

@@ -1,5 +1,5 @@
 "use client";
-/* eslint-disable @next/next/no-img-element */
+
 import clsx from "clsx";
 import gsap from "gsap";
 import { Menu, X } from "lucide-react";
