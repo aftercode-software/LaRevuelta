@@ -12,7 +12,7 @@ const pages = {
 };
 
 export default async function page({ params }: { params: { slug: string } }) {
-  const { slug } = await params;
+  const { slug } = params;
 
   const cliente = clientes.find(
     (cliente) => cliente.href === `/clientes/${slug}`
