@@ -1,4 +1,5 @@
 import HeroSections from "@/components/HeroSections";
+import NuestraFilosofia from "@/components/nuestra-filosofia/NuestraFilosofia";
 import TransformationComplete from "@/components/TrasnformationComplete";
 import { Metadata } from "next";
 import React from "react";
@@ -13,7 +14,7 @@ export default function Page() {
   return (
     <>
       <HeroSections
-        url={"/transformation/hero-transformacion.webp"}
+        url={"/transformation/hero-transformacion.png"}
         emoji="🛠️"
         title="Proceso de "
         titleBold="transformación"

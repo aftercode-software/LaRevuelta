@@ -9,8 +9,8 @@ export default function NosObsesionamos() {
       opacity: 0,
       duration: 0.4,
       y: 50,
-      delay: 1.8,
-      ease: "power3.in",
+      delay: 1.9,
+      ease: "power3.out",
     });
   });
 

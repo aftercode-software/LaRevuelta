@@ -15,36 +15,47 @@ export default function Necesidades() {
 
 function EscenaNecesidades() {
   const personRef = useRef<HTMLImageElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   const tl = useTimeline();
 
-  useGSAP(() => {
-    if (!tl) return;
+  useGSAP(
+    () => {
+      if (!tl) return;
 
-    tl.from(
-      personRef.current,
-      {
-        opacity: 0,
-        scale: 0.8,
-        duration: 2,
-        ease: "power4.inOut",
-      },
-      "firstpart"
-    );
-    tl.to(
-      personRef.current,
-      {
-        opacity: 0,
-        scale: 0.6,
-        duration: 2,
-        ease: "power4.inOut",
-      },
-      "+=1"
-    );
-  }, [tl]);
+      tl.from(
+        personRef.current,
+        {
+          opacity: 0,
+          scale: 0.8,
+          duration: 2,
+          ease: "power4.inOut",
+        },
+        "firstpart"
+      );
+      tl.to(
+        personRef.current,
+        {
+          opacity: 0,
+          scale: 0.6,
+          duration: 2,
+          ease: "power4.inOut",
+        },
+        "+=1"
+      );
+    },
+    {
+      scope: containerRef,
+      dependencies: [tl],
+    }
+  );
 
   return (
-    <div className="container-necesidades relative flex flex-col w-full h-screen bg-black overflow-hidden">
+    <div
+      ref={containerRef}
+      className="container-necesidades relative flex flex-col w-full h-screen bg-black overflow-hidden"
+    >
+      <div className="h-[10vh]"></div>
       <div className="relative flex-1 w-full h-full flex flex-col items-center justify-center">
         {/* Person */}
         <img
@@ -76,7 +87,7 @@ function NecesidadBox({ className, id }: NecesidadBoxProps) {
   return (
     <div
       id={id}
-      className={`necesidad absolute flex flex-col items-center gap-1 py-1 sm:py-2 px-3 sm:px-6 bg-black z-30 text-white rounded-lg border-2 border-primario-500 w-fit ${className}`}
+      className={`necesidad absolute flex flex-col items-center gap-1 py-1 sm:py-2 px-3 sm:px-6 bg-black z-30 text-white rounded-xl border-2 border-primario-500 w-fit ${className}`}
     >
       <img
         src="/images/filosofia/bulb.svg"

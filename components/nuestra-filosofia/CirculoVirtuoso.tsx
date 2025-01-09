@@ -14,36 +14,46 @@ export default function CirculoVirtuoso() {
 
 function EscenaCirculoVirtuoso() {
   const personRef = useRef<HTMLImageElement>(null);
-
+  const containerRef = useRef<HTMLDivElement>(null);
   const tl = useTimeline();
 
-  useGSAP(() => {
-    if (!tl) return;
+  useGSAP(
+    () => {
+      if (!tl) return;
 
-    tl.from(
-      personRef.current,
-      {
-        opacity: 0,
-        scale: 0.8,
-        duration: 2,
-        ease: "power4.inOut",
-      },
-      "firstpart"
-    );
-    tl.to(
-      personRef.current,
-      {
-        opacity: 0,
-        scale: 0.6,
-        duration: 2,
-        ease: "power4.inOut",
-      },
-      "+=1"
-    );
-  }, [tl]);
+      tl.from(
+        personRef.current,
+        {
+          opacity: 0,
+          scale: 0.8,
+          duration: 2,
+          ease: "power4.inOut",
+        },
+        "firstpart"
+      );
+      tl.to(
+        personRef.current,
+        {
+          opacity: 0,
+          scale: 0.6,
+          duration: 2,
+          ease: "power4.inOut",
+        },
+        "+=1"
+      );
+    },
+    {
+      scope: containerRef,
+      dependencies: [tl],
+    }
+  );
 
   return (
-    <div className="container-circulo-virtuoso relative flex flex-col w-full h-screen bg-black overflow-hidden">
+    <div
+      ref={containerRef}
+      className="container-circulo-virtuoso relative flex flex-col w-full h-screen bg-black overflow-hidden"
+    >
+      <div className="h-[10vh]"></div>
       <div className="relative flex-1 w-full h-full flex flex-col items-center justify-center">
         {/* Person */}
         <img
@@ -82,7 +92,7 @@ function NecesidadBox({ className, id }: NecesidadBoxProps) {
         alt="Necesidad"
         className="w-28"
       />
-      <div className="-mt-14 py-1 px-3 bg-black/50 text-white rounded-lg border-2 border-primario-500 w-fit">
+      <div className="-mt-14 py-1 px-3 bg-black/50 text-white rounded-xl border-2 border-primario-500 w-fit">
         <img src="/images/filosofia/bulb.svg" alt="Necesidad" className="w-6" />
       </div>
     </div>
@@ -142,10 +152,10 @@ export function NecesidadesCircleStore() {
 
   return (
     <div ref={containerRef}>
-      <NecesidadBox className="top-[1vh] sm:top-[2vh] lg:top-0 left-1/2 -translate-x-1/2" />
+      <NecesidadBox className="top-[1vh] sm:top-0 left-1/2 -translate-x-1/2" />
       <NecesidadBox className="top-[20vh] right-2 md:right-[15vw] lg:right-[20vw] xl:right-[25vw] 2xl:right-[28vw]" />
       <NecesidadBox className="bottom-[20vh] right-2 md:right-[15vw] lg:right-[20vw] xl:right-[25vw] 2xl:right-[28vw]" />
-      <NecesidadBox className="bottom-[2vh] sm:bottom-[3vh] lg:bottom-[1vh] left-1/2 -translate-x-1/2" />
+      <NecesidadBox className="bottom-[2vh] sm:bottom-[1vh] lg:bottom-[1vh] left-1/2 -translate-x-1/2" />
       <NecesidadBox className="bottom-[20vh] left-2 md:left-[15vw] lg:left-[20vw] xl:left-[25vw] 2xl:left-[28vw]" />
       <NecesidadBox className="top-[20vh] left-2 md:left-[15vw] lg:left-[20vw] xl:left-[25vw] 2xl:left-[28vw]" />
       <img

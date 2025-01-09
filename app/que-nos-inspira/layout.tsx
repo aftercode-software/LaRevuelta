@@ -16,7 +16,7 @@ export default function InspirationLayout({
   return (
     <>
       <HeroSections
-        url={"/inspiracion/hero-inspiracion.webp"}
+        url={"/inspiracion/hero-inspiracion.png"}
         emoji="💡"
         title="Qué nos "
         titleBold="inspira"

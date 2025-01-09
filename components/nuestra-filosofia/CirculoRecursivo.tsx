@@ -2,6 +2,7 @@
 
 import { TimelineProvider, useTimeline } from "@/hooks/useTimeline";
 import { useGSAP } from "@gsap/react";
+import { useRef } from "react";
 import Container from "../Container";
 import GlowingText from "./GlowingText";
 
@@ -18,7 +19,7 @@ import GlowingText from "./GlowingText";
 export default function CirculoRecursivo() {
   return (
     <TimelineProvider
-      end="+=1700"
+      end="+=1000"
       // defaultConfig={config}
       triggerSelector=".container-circulo-recursivo"
     >
@@ -29,30 +30,41 @@ export default function CirculoRecursivo() {
 
 function EscenaCirculoRecursivo() {
   const tl = useTimeline();
+  const containerRef = useRef<HTMLDivElement>(null);
 
-  useGSAP(() => {
-    if (!tl) return;
+  useGSAP(
+    () => {
+      if (!tl) return;
 
-    tl.from(".first-text-rec", {
-      x: -100,
-      opacity: 0,
-      scale: 0.9,
-      ease: "power2.inOut",
-    });
-
-    tl.from(
-      ".recursive-circle-p",
-      {
+      tl.from(".first-text-rec", {
+        x: -100,
         opacity: 0,
-        stagger: 0.5,
-        ease: "sine.inOut",
-      },
-      ">+=4"
-    );
-  }, [tl]);
+        scale: 0.9,
+        ease: "power2.inOut",
+      });
+
+      tl.from(
+        ".recursive-circle-p",
+        {
+          opacity: 0,
+          stagger: 0.5,
+          ease: "sine.inOut",
+        },
+        ">+=4"
+      );
+    },
+    {
+      scope: containerRef,
+      dependencies: [tl],
+    }
+  );
 
   return (
-    <section className="container-circulo-recursivo relative flex flex-col justify-center w-full h-screen bg-black overflow-hidden">
+    <section
+      ref={containerRef}
+      className="container-circulo-recursivo relative flex flex-col justify-center w-full h-screen bg-black overflow-hidden"
+    >
+      <div className="h-[10vh]"></div>
       <Container className="w-[90vw] h-fit mb-4">
         <span className="block first-text-rec text-3xl font-onest">
           Pero lo verdaderamente gratificante es que <br /> este sistema es{" "}
@@ -60,7 +72,7 @@ function EscenaCirculoRecursivo() {
           <GlowingText>exponencial</GlowingText>
         </span>
       </Container>
-      <div className="-ml-20 sm:-ml-10 flex gap-8 sm:gap-24 w-full">
+      <div className="-ml-20 sm:-ml-10 mt-8 flex gap-8 sm:gap-24 w-full">
         {/* <CirculoConPersona /> */}
         {Array.from({ length: 6 }).map((_, i) => (
           <img

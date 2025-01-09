@@ -71,7 +71,7 @@ export default function ComprendemosTuSueño() {
   return (
     <div
       ref={containerRef}
-      className="seccion-comprendemos relative h-[350vw] md:h-[120vh] flex flex-col"
+      className="seccion-comprendemos relative h-[350vw] md:h-[120vh] flex flex-col overflow-hidden"
     >
       <img
         src="/images/comprendemos/white_cloud.png"
