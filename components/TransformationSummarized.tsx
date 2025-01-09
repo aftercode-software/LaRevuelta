@@ -280,11 +280,11 @@ export default function TransformationSummarized() {
         </div>
       ))}
 
-      <div className="flex justify-center sm:justify-end mt-10">
+      {/* <div className="flex justify-center sm:justify-end mt-10">
         <button className="uppercase flex gap-4 py-3 px-6 rounded-xl border-primario-500 border-[1px] bg-primario-500/20 items-center font-onest text-xl sm:text-2xl font-semibold">
           descargar brochure <FileDown className="text-primario-500" />
         </button>
-      </div>
+      </div> */}
     </Container>
   );
 }
