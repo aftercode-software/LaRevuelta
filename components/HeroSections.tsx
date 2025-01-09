@@ -5,8 +5,6 @@ export default function HeroSections({
   emoji,
   title,
   titleBold,
-  title,
-  titleBold,
   desc,
 }: {
   url: string;

@@ -1,7 +1,6 @@
-import {
-  default as IpcPage,
-  default as NutriterraPage,
-} from "@/components/clientes/NutriterraPage";
+import IpcPage from "@/components/clientes/IpcPage";
+import NutriterraPage from "@/components/clientes/NutriterraPage";
+import Pill from "@/components/clientes/Pill";
 import StatCard from "@/components/clientes/StatCard";
 import Container from "@/components/Container";
 import { Flag } from "lucide-react";
@@ -10,6 +9,7 @@ import { Cliente, clientes } from "../page";
 
 const pages = {
   nutriterra: <NutriterraPage />,
+  ipc: <IpcPage />,
 };
 
 export default async function page({ params }: { params: { slug: string } }) {
@@ -50,9 +50,12 @@ export default async function page({ params }: { params: { slug: string } }) {
 function FirstSection({ cliente }: { cliente: Cliente }) {
   return (
     <section className="">
-      <h1 className="text-5xl text-primario-500 font-bold mb-2">
-        {cliente?.name}
-      </h1>
+      <div className="flex justify-between items-center">
+        <h1 className="text-5xl text-primario-500 font-bold mb-2">
+          {cliente?.name}
+        </h1>
+        <Pill text={cliente?.year} />
+      </div>
       <p className="text-xl">{cliente?.description}</p>
       <div className="flex flex-wrap gap-4 mt-6">
         {cliente?.stats.map((stat) => (
