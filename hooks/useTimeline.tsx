@@ -3,7 +3,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { createContext, useContext, useState } from "react";
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 const timelineContext = createContext<GSAPTimeline | null>(null);
 
@@ -16,10 +16,12 @@ export const TimelineProvider = ({
   children,
   triggerSelector,
   defaultConfig,
+  start,
   end,
 }: {
   children: React.ReactNode;
   triggerSelector: string;
+  start?: string;
   end?: string;
   defaultConfig?: any;
 }) => {
@@ -29,12 +31,11 @@ export const TimelineProvider = ({
     let config = {
       scrollTrigger: {
         trigger: triggerSelector,
-        start: "top top",
-        end: end || "+=3100",
+        start: start || "top top",
+        end: end || "+=1400",
         pin: true,
-        scrub: 0.8,
-        autoRemoveChildren: true,
-        // markers: true,
+        scrub: 1,
+        markers: true,
       },
     };
     if (defaultConfig) config = defaultConfig;

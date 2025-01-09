@@ -1,12 +1,13 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 import { gsap } from "gsap";
-import { CirclePlus, Sparkle } from "lucide-react";
+import { CirclePlus, FileDown, Sparkle } from "lucide-react";
 import React, { useEffect, useRef, useState } from "react";
 import Container from "./Container";
 
 export default function TransformationSummarized() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const containerRef = useRef<HTMLDivElement>(null);
   const contentRefs = useRef<(HTMLDivElement | null)[]>([]);
   const iconRefs = useRef<(SVGSVGElement | null)[]>([]);
   const [isDesktop, setIsDesktop] = useState(false);
@@ -207,9 +208,9 @@ export default function TransformationSummarized() {
   ];
 
   return (
-    <Container className="h-auto pb-40">
+    <Container className="h-screen pb-40">
       <div className="flex justify-center mb-10">
-        <span className="uppercase text-center leading-10 font-onest text-2xl md:text-3xl font-semibold">
+        <span className="uppercase text-center leading-10 font-onest text-2xl md:text-2xl font-semibold">
           nuestro proceso de{" "}
           <b className="text-gradient-border w-[90%] md:w-auto">
             transformación
@@ -220,6 +221,7 @@ export default function TransformationSummarized() {
 
       {items.map((item, index) => (
         <div
+          ref={containerRef}
           key={index}
           className={`overflow-hidden transition-all px-4 pt-4 border-[#424242] border-2 
          ${

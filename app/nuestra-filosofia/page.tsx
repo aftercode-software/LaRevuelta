@@ -10,10 +10,10 @@ export default function page() {
   return (
     <>
       <HeroSections
-        url={"/transformation/hero-transformacion.webp"}
-        emoji="🛠️"
-        title="Proceso de "
-        titleBold="transformación"
+        url={"/images/filosofia/filosofo.png"}
+        emoji="🧠"
+        title="Nuestra "
+        titleBold="filosofía"
         desc="Lorem ipsum dolores amet lorem ipsum dolores amet lorem ipsum dolores amet lorem ipsum dolores amet"
       />
       <div>

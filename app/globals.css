@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --background: #070707 url("/images/noise_bg.png");
+  --background: #000000;
   --foreground: #ededed;
 }
 
@@ -48,7 +48,7 @@ body {
 .text-gradient-border {
   position: relative;
   display: inline-block;
-  padding: 0.7rem 2rem;
+  padding: 0.5rem 1rem;
   text-transform: uppercase;
 
   border-radius: 50px;

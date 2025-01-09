@@ -36,7 +36,7 @@ function HeroBadge() {
       opacity: 0,
       duration: 0.4,
       y: -30,
-      delay: 2,
+      delay: 1.8,
       ease: "expo.inOut",
     });
   });
@@ -75,7 +75,7 @@ function HeroTitle() {
     );
   });
   return (
-    <h1 className="text-5xl xs:text-5xl xl:text-6xl font-fustat mt-4">
+    <h1 className="text-5xl xs:text-5xl xl:text-6xl 2xl:text-7xl font-fustat mt-4">
       <span className="block hero-title">
         Rompemos{" "}
         <span

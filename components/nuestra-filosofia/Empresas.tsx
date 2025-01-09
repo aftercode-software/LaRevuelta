@@ -2,6 +2,7 @@
 import useMediaQuery from "@/hooks/useMediaQuery";
 import { TimelineProvider, useTimeline } from "@/hooks/useTimeline";
 import { useGSAP } from "@gsap/react";
+import { useRef } from "react";
 import TextBox from "./TextBox";
 
 export default function Empresas() {
@@ -17,83 +18,100 @@ function EscenaEmpresas() {
   const isMobile = useMediaQuery("(max-width: 640px)");
   const isTablet = useMediaQuery("(max-width: 1024px)");
   const amountStores = isMobile ? 2 : isTablet ? 4 : 6;
+  const containerRef = useRef<HTMLDivElement>(null);
 
-  useGSAP(() => {
-    if (!tl) return;
+  useGSAP(
+    () => {
+      if (!tl) return;
 
-    tl.from(
-      ".store-off",
-      {
+      tl.from(".container-empresas", {
         opacity: 0,
-        scale: 0.9,
-        stagger: 0.5,
         duration: 1,
         ease: "power4.inOut",
-      },
-      "firstpart"
-    );
-    tl.from(
-      ".store-on",
-      {
-        opacity: 0,
-        duration: 1.5,
-        scale: 0.6,
-        ease: "power4.inOut",
-      },
-      "firstpart+=1"
-    );
-    tl.from(
-      ".necesidad-w-arrow",
-      {
-        opacity: 0,
-        scale: 0.9,
-        stagger: 1,
-        y: 100,
-        duration: 1,
-        ease: "power4.inOut",
-      },
-      "firstpart+=1.5"
-    );
+      });
 
-    tl.to(
-      ".store-off",
-      {
-        opacity: 0,
-        scale: 0.9,
-        stagger: 0.5,
-        ease: "power4.inOut",
-      },
-      "+=1"
-    );
+      tl.from(
+        ".store-off",
+        {
+          opacity: 0,
+          scale: 0.9,
+          stagger: 0.5,
+          duration: 1,
+          ease: "power4.inOut",
+        },
+        "firstpart"
+      );
+      tl.from(
+        ".store-on",
+        {
+          opacity: 0,
+          duration: 1.5,
+          scale: 0.6,
+          ease: "power4.inOut",
+        },
+        "firstpart+=1"
+      );
+      tl.from(
+        ".necesidad-w-arrow",
+        {
+          opacity: 0,
+          scale: 0.9,
+          stagger: 1,
+          y: 100,
+          duration: 1,
+          ease: "power4.inOut",
+        },
+        "firstpart+=1.5"
+      );
 
-    tl.to(
-      ".store-on",
-      {
-        opacity: 0,
-        scale: 0.9,
-        stagger: 0.5,
-        ease: "power4.inOut",
-      },
-      "+=1.5"
-    );
+      tl.to(
+        ".store-off",
+        {
+          opacity: 0,
+          scale: 0.9,
+          stagger: 0.5,
+          ease: "power4.inOut",
+        },
+        "+=1"
+      );
 
-    tl.to(
-      ".necesidad-w-arrow",
-      {
-        opacity: 0,
-        scale: 0.9,
-        stagger: 0.5,
-        ease: "power4.inOut",
-      },
-      "<"
-    );
-  }, [tl]);
+      tl.to(
+        ".store-on",
+        {
+          opacity: 0,
+          scale: 0.9,
+          stagger: 0.5,
+          ease: "power4.inOut",
+        },
+        "+=1.5"
+      );
+
+      tl.to(
+        ".necesidad-w-arrow",
+        {
+          opacity: 0,
+          scale: 0.9,
+          stagger: 0.5,
+          ease: "power4.inOut",
+        },
+        "<"
+      );
+    },
+    {
+      scope: containerRef,
+      dependencies: [tl],
+    }
+  );
 
   return (
-    <div className="container-empresas relative flex flex-col w-full h-screen bg-black overflow-hidden">
+    <div
+      ref={containerRef}
+      className="container-empresas relative flex flex-col w-full h-screen bg-black overflow-hidden"
+    >
+      {/* <div className="h-[10vh]"></div> */}
       <div className="relative flex-1 w-full h-full flex flex-col items-center justify-center">
         <div className="necesidad-w-arrow flex flex-col items-center justify-center gap-4">
-          <div className=" flex flex-col items-center gap-1 py-2 px-6 bg-black text-white rounded-lg border-2 border-primario-500 w-fit">
+          <div className=" flex flex-col items-center gap-1 py-2 px-6 bg-black text-white rounded-xl border-2 border-primario-500 w-fit">
             <img
               src="/images/filosofia/bulb.svg"
               alt="Necesidad"
