@@ -18,7 +18,7 @@ export default function Home() {
       <ComprendemosTuSueño />
       <TransformationSummarized />
       <Container className="mt-10 flex flex-col items-center justify-center gap-4">
-        <h2 className="text-5xl text-center font-fustat">
+        <h2 className="text-2xl md:text-5xl text-center font-fustat">
           Conocé nuestra{" "}
           <span className="text-primario-500 font-bold">filosofía</span>
         </h2>
