@@ -1,9 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
-import React, { useState, useRef, useEffect } from "react";
 import { gsap } from "gsap";
-import Container from "./Container";
 import { CirclePlus, Sparkle } from "lucide-react";
+import React, { useEffect, useRef, useState } from "react";
+import Container from "./Container";
 
 export default function TransformationSummarized() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
@@ -105,7 +105,7 @@ export default function TransformationSummarized() {
             <img
               src="/transformation/velocimetro.webp"
               alt="rocket"
-              className="absolute -right-20 w-[40%] xl:w-[30%] -bottom-4"
+              className="absolute -right-20 w-[40%] xl:w-[30%] -bottom-4 z-10"
             />
           </aside>
         </div>
@@ -236,7 +236,7 @@ export default function TransformationSummarized() {
          }`}
         >
           <div
-            className={`w-full z-10 ${
+            className={`w-full z-50 ${
               index !== items.length - 1 ? "-mb-5 lg:-mb-6 xl:-mb-8" : " "
             }`}
           >

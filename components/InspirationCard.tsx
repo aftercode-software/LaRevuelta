@@ -5,6 +5,8 @@ import gsap from "gsap";
 import { Inspiration } from "@/app/que-nos-inspira/page";
 import useSound from "use-sound";
 import { ArrowUpRight } from "lucide-react";
+import Link from "next/link";
+import { useGSAP } from "@gsap/react";
 
 export default function InspirationCard({ inspo }: { inspo: Inspiration }) {
   const cardRef = useRef<HTMLAnchorElement | null>(null);
@@ -16,15 +18,17 @@ export default function InspirationCard({ inspo }: { inspo: Inspiration }) {
     volume: 0.05,
   });
 
-  useEffect(() => {
+  useGSAP(() => {
     if (cardRef.current) {
       gsap.fromTo(
         cardRef.current,
-        { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, duration: 1, ease: "power2.out" }
+        { opacity: 0, y: 30 },
+        { opacity: 1, y: 0, duration: 1, ease: "ease" }
       );
     }
+  }, []);
 
+  useEffect(() => {
     return () => {
       stop();
     };
@@ -55,10 +59,10 @@ export default function InspirationCard({ inspo }: { inspo: Inspiration }) {
   };
 
   return (
-    <a
+    <Link
       ref={cardRef}
       href={`/que-nos-inspira/${inspo.slug}`}
-      className="relative flex flex-col justify-end items-center  rounded-xl overflow-hidden group text-center w-full aspect-square max-w-[320px] sm:max-w-full mx-auto cursor-pointer transition-transform"
+      className="relative flex flex-col justify-end items-center  rounded-xl overflow-hidden group text-center w-full aspect-square max-w-[320px] sm:max-w-full mx-auto cursor-pointer "
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
@@ -68,9 +72,9 @@ export default function InspirationCard({ inspo }: { inspo: Inspiration }) {
       <img
         src={inspo.img}
         alt="Background"
-        className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 saturate-0 group-hover:saturate-100 transition-all duration-500 rounded-xl"
+        className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 saturate-0 group-hover:saturate-100  duration-500 rounded-xl"
       />
-      <div className="absolute inset-0 z-20 bg-black bg-opacity-70 group-hover:bg-opacity-60 transition-all duration-500" />
+      <div className="absolute inset-0 z-20 bg-black bg-opacity-70 group-hover:bg-opacity-60  duration-500" />
 
       {inspo.imgAbove && (
         <img
@@ -78,7 +82,7 @@ export default function InspirationCard({ inspo }: { inspo: Inspiration }) {
           src={inspo.imgAbove}
           alt={inspo.title}
           className={`hidden sm:block sm:relative z-30 w-[70%] sm:pt-5 h-[65%] object-contain saturate-0 group-hover:saturate-100 ${
-            inspo.slug === "the-beatles" ? "transition-all duration-500" : ""
+            inspo.slug === "the-beatles" ? " duration-500" : ""
           }`}
         />
       )}
@@ -89,6 +93,6 @@ export default function InspirationCard({ inspo }: { inspo: Inspiration }) {
         </p>
         <p className="font-geist text-base sm:text-lg mt-1">{inspo.desc}</p>
       </div>
-    </a>
+    </Link>
   );
 }

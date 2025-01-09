@@ -1,5 +1,6 @@
 import React from "react";
-import GraficoPie from "./GraficoPie";
+import DataWarning from "./DataWarning";
+import GraficoPie from "./PieNutriterra";
 
 export default function NutriterraPage() {
   return (
@@ -17,7 +18,8 @@ function Etapa1() {
           <span className="font-light">Etapa 1</span> Generación de
           Hiper-conciencia
         </h2>
-        <p className="text-xl">
+        <DataWarning />
+        <p className="text-xl mt-3">
           La investigación inicial <b>reveló un desbalance</b>: Nutriterra,
           líder en fertilización líquida a medida,{" "}
           <b>no ocupaba una posición destacada en los canales clave</b>. El

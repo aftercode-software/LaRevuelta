@@ -1,15 +1,15 @@
 "use client";
 
 import { useState } from "react";
-import { Pie, PieChart, ResponsiveContainer, Sector, Tooltip } from "recharts";
+import { Pie, PieChart, ResponsiveContainer, Sector } from "recharts";
 
 const data01 = [
-  { name: "Nutriterra", value: 25.6, fill: "#FCF532" },
-  { name: "Competidor 1", value: 47.8, fill: "#71EB92" },
-  { name: "Competidor 2", value: 26.6, fill: "#FFFDC6" },
+  { name: "IPC", value: 32.5, fill: "#FCF532" },
+  { name: "Competidor 1", value: 42.1, fill: "#71EB92" },
+  { name: "Competidor 2", value: 25.5, fill: "#FFFDC6" },
 ];
 
-export default function GraficoPie() {
+export default function PieIpc() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const onPieEnter = (data, index) => {
@@ -104,7 +104,7 @@ const renderActiveShape = (props) => {
         y={ey}
         textAnchor={textAnchor}
         fill="white"
-      >{` ${value}% del tráfico`}</text>
+      >{` ${value}% de las visitas`}</text>
     </g>
   );
 };

@@ -1,8 +1,7 @@
 "use client";
-
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import React, { useEffect } from "react";
+import React from "react";
 import Container from "./Container";
 import NosObsesionamos from "./NosObsesionamos";
 

@@ -48,7 +48,10 @@ export default function Page() {
   if (!hydrated) return null;
 
   return (
-    <Container className="grid lg:grid-cols-3 gap-12 mb-10 justify-center">
+    <Container
+      className="grid lg:grid-cols-3 min-h-[60vh] gap-12 mb-10 justify-center"
+      tag="main"
+    >
       {inspirations.map((inspo) => (
         <InspirationCard key={inspo.slug} inspo={inspo} />
       ))}
