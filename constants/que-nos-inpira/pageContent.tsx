@@ -214,7 +214,7 @@ export const inspiraciones: InspirationPageContent[] = [
         </aside>
         <aside ref={imgContainerRef} className=" flex flex-col xl:w-[30%]">
           <img
-            src="/images/que-nos-inspira/spotifydukiysy.webp"
+            src="/images/que-nos-inspira/spotifyDukiYsy.webp"
             alt="YSY y Duki"
             className="w-full h-full object-cover rounded-xl"
           />
