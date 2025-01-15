@@ -16,6 +16,7 @@ export default function Home() {
           Conocé nuestra{" "}
           <span className="text-primario-500 font-bold">filosofía</span>
         </h2>
+
         <ChevronsDown className="text-primario-500 animate-bounce" size={60} />
       </Container>
       <NuestraFilosofia />

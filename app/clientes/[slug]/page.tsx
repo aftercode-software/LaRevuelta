@@ -11,9 +11,12 @@ const pages = {
   ipc: <IpcPage />,
 };
 
-export default async function page({ params }: { params: { slug: string } }) {
-  const { slug } = params;
-
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
   const cliente = clientes.find(
     (cliente) => cliente.href === `/clientes/${slug}`
   );
