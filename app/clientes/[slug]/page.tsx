@@ -2,9 +2,10 @@ import IpcPage from "@/components/clientes/IpcPage";
 import NutriterraPage from "@/components/clientes/NutriterraPage";
 import Pill from "@/components/clientes/Pill";
 import StatCard from "@/components/clientes/StatCard";
+import { clientes } from "@/constants/clientes/clientes";
+import { Cliente } from "@/interfaces/clientes";
 import { Flag } from "lucide-react";
 import React from "react";
-import { Cliente, clientes } from "../page";
 
 const pages = {
   nutriterra: <NutriterraPage />,
