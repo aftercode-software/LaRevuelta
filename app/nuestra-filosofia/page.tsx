@@ -6,9 +6,11 @@ import { Metadata } from "next";
 import React from "react";
 
 export const metadata: Metadata = {
-  title: "Nuestra filosofía",
+  title: "Nuestra filosofía - La Revuelta",
   description:
-    "Conoce nuestra filosofía y los valores que nos impulsan a ofrecer lo mejor.",
+    "Explorá nuestra filosofía basada en satisfacer necesidades humanas y potenciar el impacto de las empresas. Creamos un círculo virtuoso donde todos ganan.",
+  keywords:
+    "filosofía La Revuelta, marketing con propósito, necesidades humanas, impacto empresarial, círculo virtuoso, agencias con valores, propuestas de valor, transformación positiva, progreso económico",
 };
 
 gsap.registerPlugin(ScrollTrigger);

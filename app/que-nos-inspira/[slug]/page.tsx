@@ -1,5 +1,5 @@
 "use client";
-import { useParams, useRouter } from "next/navigation";
+import { useParams } from "next/navigation";
 import Container from "@/components/Container";
 import Link from "next/link";
 import { CircleArrowLeft, Volume2, VolumeOff } from "lucide-react";
@@ -18,13 +18,6 @@ export default function InspirationDetailPage() {
   const backButtonRef = useRef<HTMLAnchorElement>(null!);
   const musicButtonRef = useRef<HTMLButtonElement>(null!);
   const [isMuted, setIsMuted] = useState(false);
-
-  const router = useRouter();
-
-  if (!inspiration) {
-    router.push("/que-nos-inspira");
-    return;
-  }
 
   const [play, { stop, sound }] = useSound(inspiration.audioHover, {
     volume: 0.03,
