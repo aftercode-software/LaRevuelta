@@ -1,9 +1,10 @@
+import Footer from "@/components/Footer";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 import Navbar from "@/components/Navbar";
+import WhatsappBubble from "@/components/WhatsappBubble";
 import type { Metadata } from "next";
 import { Fustat, Geist, Onest } from "next/font/google";
 import "./globals.css";
-import Footer from "@/components/Footer";
-import GoogleAnalytics from "@/components/GoogleAnalytics";
 
 const fustat = Fustat({
   variable: "--font-fustat",
@@ -61,10 +62,11 @@ export default function RootLayout({
         /> */}
       </head>
       <body
-        className={`${geistSans.variable} ${fustat.variable} ${onest.variable} antialiased`}
+        className={`${geistSans.variable} ${fustat.variable} ${onest.variable} antialiased relative`}
       >
         <Navbar />
         {children}
+        <WhatsappBubble />
         <Footer />
       </body>
     </html>

@@ -82,7 +82,7 @@ function Etapa2() {
         </div>
         <aside className="w-full lg:w-[40vw] flex flex-col gap-3">
           <img
-            src="/images/clientes/ipc/diadepileta.png"
+            src="/images/clientes/ipc/diadepileta.webp"
             className="rounded-xl"
             alt="IPC Día de la pileta"
           />

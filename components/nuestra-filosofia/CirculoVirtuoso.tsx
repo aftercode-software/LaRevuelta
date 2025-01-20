@@ -59,7 +59,7 @@ function EscenaCirculoVirtuoso() {
         <img
           src="/images/filosofia/myman.png"
           alt="Person"
-          className="person w-24 sm:w-32"
+          className="person w-20 sm:w-32"
           ref={personRef}
         />
         <NecesidadesCircleStore />
@@ -88,7 +88,7 @@ function NecesidadBox({ className, id }: NecesidadBoxProps) {
       id={id}
     >
       <img
-        src="/images/filosofia/store-on.png"
+        src="/images/filosofia/store-on.webp"
         alt="Necesidad"
         className="w-28"
       />

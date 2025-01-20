@@ -21,7 +21,7 @@ body {
       rgba(0, 0, 0, 0.5) 50%,
       rgba(0, 0, 0, 1) 80%
     ),
-    url("/images/hero.jpg") no-repeat center center / cover;
+    url("/images/hero.webp") no-repeat center center / cover;
 }
 
 @media (max-width: 850px) {
@@ -31,7 +31,7 @@ body {
         rgba(0, 0, 0, 0.6),
         rgba(0, 0, 0, 1)
       ),
-      url("/images/hero.jpg") no-repeat 65% center / cover;
+      url("/images/hero.webp") no-repeat 65% center / cover;
   }
 }
 
@@ -53,7 +53,7 @@ body {
         rgba(0, 0, 0, 0.8),
         rgba(0, 0, 0, 1)
       ),
-      url("/images/hero.jpg") no-repeat 70% center / cover;
+      url("/images/hero.webp") no-repeat 70% center / cover;
   }
   .text-gradient-border {
     padding: 0.2rem 1.2rem;

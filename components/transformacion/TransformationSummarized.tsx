@@ -1,10 +1,10 @@
 "use client";
+import { pasos } from "@/constants/transformation/summarized";
+import useMediaQuery from "@/hooks/useMediaQuery";
 import { gsap } from "gsap";
 import { CirclePlus, Sparkle } from "lucide-react";
 import React, { useEffect, useRef, useState } from "react";
 import Container from "../Container";
-import useMediaQuery from "@/hooks/useMediaQuery";
-import { pasos } from "@/constants/transformation/summarized";
 
 export default function TransformationSummarized() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
@@ -13,6 +13,7 @@ export default function TransformationSummarized() {
   const iconRefs = useRef<(SVGSVGElement | null)[]>([]);
 
   const isDesktop = useMediaQuery("(min-width: 1024px)");
+  const isSmallHeight = useMediaQuery("(max-height: 800px)");
 
   const toggleAccordion = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -49,7 +50,7 @@ export default function TransformationSummarized() {
   }, [openIndex]);
 
   return (
-    <Container className="h-screen pb-40">
+    <Container className={`${isSmallHeight ? "h-[140vh]" : "h-[110vh]"} pb-40`}>
       <div className="flex justify-center mb-10">
         <span className="uppercase text-center leading-10 font-onest text-2xl md:text-2xl font-semibold">
           nuestro proceso de{" "}

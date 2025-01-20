@@ -13,9 +13,13 @@ export default function FinalFilosofia() {
           que hacen a hacen a las organizaciones.
         </p>
 
-        <button className="mt-16 bg-primario-950/20 border-primario-500 border py-2 px-4 rounded-xl text-xl sm:text-2xl font-fustat font-semibold w-fit ml-auto block">
+        <a
+          href="https://wa.me/num"
+          target="_blank"
+          className="text-center mt-16 bg-primario-950/20 border-primario-500 border py-2 px-4 rounded-xl text-xl sm:text-2xl font-fustat font-semibold w-fit ml-auto block hover:scale-110 transition-transform duration-300"
+        >
           Llevemos tu empresa al siguiente nivel 🚀
-        </button>
+        </a>
       </Container>
     </div>
   );

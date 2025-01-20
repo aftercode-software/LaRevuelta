@@ -1,6 +1,6 @@
 import React from "react";
 import DataWarning from "./DataWarning";
-import GraficoPie from "./PieNutriterra";
+import PieNutriterra from "./PieNutriterra";
 
 export default function NutriterraPage() {
   return (
@@ -36,7 +36,7 @@ function Etapa1() {
         </p>
       </div>
       <div className="w-full lg:w-[40vw]">
-        <GraficoPie />
+        <PieNutriterra />
       </div>
     </section>
   );
@@ -57,13 +57,13 @@ function Etapa2() {
         <Etapa2Lista />
         <div className="w-full lg:w-[40vw] flex flex-col gap-3">
           <img
-            src="/images/clientes/nutriterra/bannerlimon.jpg"
+            src="/images/clientes/nutriterra/bannerlimon.webp"
             className="rounded-xl"
             alt="Nutriterra Banner limón"
           />
           <img
             className="rounded-xl"
-            src="/images/clientes/nutriterra/portalnutriterra.png"
+            src="/images/clientes/nutriterra/portalnutriterra.webp"
             alt="Nutriterra Portal"
           />
         </div>
