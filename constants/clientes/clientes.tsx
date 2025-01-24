@@ -3,7 +3,7 @@ import { Cliente } from "@/interfaces/clientes";
 export const clientes: Cliente[] = [
   {
     name: "IPC Pools",
-    image: "/images/clientes/ipc-banner.jpg",
+    image: "/images/clientes/ipc-banner.webp",
     logo: "/images/clientes/ipc-logo.svg",
     href: "/clientes/ipc",
     category: "PISCINAS",
@@ -46,7 +46,7 @@ export const clientes: Cliente[] = [
   },
   {
     name: "Nutriterra",
-    image: "/images/clientes/nutriterra-banner.jpg",
+    image: "/images/clientes/nutriterra-banner.webp",
     logo: "/images/clientes/nutriterra-logo.svg",
     href: "/clientes/nutriterra",
     category: "AGRO",
@@ -87,7 +87,7 @@ export const clientes: Cliente[] = [
   },
   // {
   //   name: "Lila Software",
-  //   image: "/images/clientes/lila-banner.jpg",
+  //   image: "/images/clientes/lila-banner.webp",
   //   logo: "/images/clientes/lila-logo.avif",
   //   href: "/clientes/lila",
   //   category: "SOFTWARE",

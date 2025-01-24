@@ -60,7 +60,7 @@ function EscenaNecesidades() {
         <img
           src="/images/filosofia/myman.png"
           alt="Person"
-          className="person w-28 sm:w-32"
+          className="person w-20 sm:w-32"
           ref={personRef}
         />
         <NecesidadesCircle />

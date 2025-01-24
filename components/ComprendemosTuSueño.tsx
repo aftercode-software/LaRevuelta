@@ -71,15 +71,15 @@ export default function ComprendemosTuSueño() {
   return (
     <div
       ref={containerRef}
-      className="seccion-comprendemos relative h-[350vw] md:h-[120vh] flex flex-col overflow-hidden"
+      className="seccion-comprendemos relative h-[310vw] xs:h-[300vw] md:h-[120vh] flex flex-col overflow-hidden"
     >
       <img
-        src="/images/comprendemos/white_cloud.png"
+        src="/images/comprendemos/white_cloud.webp"
         alt="ComprendemosTuSueño"
         className="cloud cloud-1 opacity-0 h-[200px] lg:h-[280px] absolute top-24 -left-64"
       />
       <img
-        src="/images/comprendemos/white_cloud_2.png"
+        src="/images/comprendemos/white_cloud_2.webp"
         alt="ComprendemosTuSueño"
         className="cloud cloud-2 opacity-0 h-[200px] lg:h-[280px] absolute top-48 -right-64"
       />
@@ -88,14 +88,14 @@ export default function ComprendemosTuSueño() {
       </section>
       <WorldSection />
       <img
-        src="/images/comprendemos/white_cloud.png"
+        src="/images/comprendemos/white_cloud.webp"
         alt="ComprendemosTuSueño"
-        className="cloud-3 opacity-0 h-[200px] lg:h-[280px] absolute bottom-24 -left-64"
+        className="cloud-3 opacity-0 h-[200px] lg:h-[280px] absolute bottom-0 brottom-24 -left-64"
       />
       <img
-        src="/images/comprendemos/white_cloud_2.png"
+        src="/images/comprendemos/white_cloud_2.webp"
         alt="ComprendemosTuSueño"
-        className="cloud-4 opacity-0 h-[200px] lg:h-[280px] absolute bottom-48 -right-64"
+        className="cloud-4 opacity-0 h-[200px] lg:h-[280px] absolute bottom-0 brottom-48 -right-64"
       />
     </div>
   );
@@ -138,7 +138,7 @@ function TituloTop() {
 function WorldSection() {
   const sectionRef = useRef(null);
 
-  useEffect(() => {
+  useGSAP(() => {
     const section = sectionRef.current;
 
     if (!section) return; // Asegura que el DOM esté listo
@@ -196,24 +196,24 @@ function WorldSection() {
         scrub: 1,
       },
     });
-  }, []); // Ejecuta solo una vez al montar
+  });
 
   return (
-    <section className="world-section relative w-full">
+    <section ref={sectionRef} className="world-section relative w-full">
       <div className="pl-0 md:pl-[10vw] lg:pl-[20vw] flex flex-col md:flex-row justify-center md:justify-start items-center gap-20 rounded-xl text-black font-geist font-medium text-3xl">
         <div className="w-[80vw] h-[80vw] sm:w-[40vw] sm:h-[40vw] xl:w-[25vw] xl:h-[25vw] relative">
           <img
-            src="/images/comprendemos/world.png"
+            src="/images/comprendemos/world.webp"
             alt="World comprendemos"
             className="world w-full h-full"
           />
           <img
-            src="/images/comprendemos/white_cloud_2.png"
+            src="/images/comprendemos/white_cloud_2.webp"
             alt="World comprendemos"
             className="cloud-world-1 absolute -bottom-5 sm:-bottom-10 -left-24 sm:-left-36 w-[90%] sm:w-[90%]"
           />
           <img
-            src="/images/comprendemos/white_cloud_4.png"
+            src="/images/comprendemos/white_cloud_4.webp"
             alt="World comprendemos"
             className="cloud-world-2 absolute -bottom-5 sm:-bottom-10 -right-24 sm:-right-36 w-[90%] sm:w-[80%] -z-10"
           />

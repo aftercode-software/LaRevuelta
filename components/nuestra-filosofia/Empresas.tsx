@@ -125,7 +125,7 @@ function EscenaEmpresas() {
           {Array.from({ length: amountStores / 2 }).map((_, i) => (
             <img
               key={i}
-              src="/images/filosofia/store-off.png"
+              src="/images/filosofia/store-off.webp"
               alt="Empresas"
               className="store-off w-28 sm:w-36 lg:w-44 2xl:w-48 h-28 sm:h-36 lg:h-44 2xl:h-48 object-contain opacity-40"
             />

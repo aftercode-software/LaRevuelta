@@ -77,7 +77,7 @@ function EscenaCirculoRecursivo() {
         {Array.from({ length: 6 }).map((_, i) => (
           <img
             key={"img-c-rec-" + i}
-            src="/images/filosofia/person_w_needs.png"
+            src="/images/filosofia/person_w_needs.webp"
             alt="Person"
             className="recursive-circle-p w-48 sm:w-80"
           />
@@ -88,7 +88,7 @@ function EscenaCirculoRecursivo() {
         {Array.from({ length: 6 }).map((_, i) => (
           <img
             key={"img-c-rec-" + i}
-            src="/images/filosofia/person_w_needs.png"
+            src="/images/filosofia/person_w_needs.webp"
             alt="Person"
             className="recursive-circle-p w-48 sm:w-80"
           />

@@ -68,12 +68,22 @@ const renderActiveShape = (props) => {
       <text
         x={cx}
         y={cy}
-        dy={8}
+        dy={6}
         textAnchor="middle"
         fontWeight={"bold"}
         fill={"white"}
       >
         {payload.name}
+      </text>
+      <text
+        x={cx}
+        y={cy}
+        dy={28}
+        textAnchor="middle"
+        fontWeight={"bold"}
+        fill={"white"}
+      >
+        {value}%
       </text>
       <Sector
         cx={cx}
@@ -93,18 +103,13 @@ const renderActiveShape = (props) => {
         outerRadius={outerRadius + 10}
         fill={fill}
       />
-      <path
-        d={`M${sx},${sy}L${mx},${my}L${ex},${ey}`}
-        stroke={fill}
-        fill="none"
-      />
-      <circle cx={ex} cy={ey} r={2} fill={fill} stroke="none" />
       <text
-        x={ex + (cos >= 0 ? 1 : -1) * 12}
-        y={ey}
-        textAnchor={textAnchor}
+        x={cx}
+        y={cy}
+        dy={150}
+        textAnchor="middle"
         fill="white"
-      >{` ${value}% del tráfico`}</text>
+      >{`% del tráfico`}</text>
     </g>
   );
 };

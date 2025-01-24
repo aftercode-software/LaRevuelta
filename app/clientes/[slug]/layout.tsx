@@ -18,6 +18,6 @@ const BackButton = React.forwardRef<HTMLAnchorElement>((_, ref) => (
     ref={ref}
     className="text-white bg-primario-500/10 px-4 py-2 rounded-xl w-max mb-4 border-[1px] border-primario-500 flex gap-2 font-onest font-semibold"
   >
-    <CircleArrowLeft className="text-primario-500" /> Todos los artistas
+    <CircleArrowLeft className="text-primario-500" /> Todos los clientes
   </Link>
 ));
