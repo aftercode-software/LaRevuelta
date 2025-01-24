@@ -13,22 +13,31 @@ export default function Footer() {
           </span>
           <ul className="flex flex-col md:flex-row flex-wrap items-start md:items-center mt-3 text-lg font-medium *:md:list-none text-black sm:mt-0 space-y-1 md:space-y-0 md:space-x-4">
             <li className="list-disc ml-6">
-              <Link href="#" className="hover:font-bold duration-150">
+              <Link
+                href="/que-nos-inspira"
+                className="hover:font-bold duration-150"
+              >
                 Nuestra inspiración
               </Link>
             </li>
             <li className="list-disc ml-6">
-              <Link href="#" className="hover:font-bold duration-150">
+              <Link
+                href="/proceso-transformacion"
+                className="hover:font-bold duration-150"
+              >
                 Proceso de transformación
               </Link>
             </li>
             <li className="list-disc ml-6">
-              <Link href="#" className="hover:font-bold duration-150">
+              <Link href="/clientes" className="hover:font-bold duration-150">
                 Clientes
               </Link>
             </li>
             <li className="list-disc ml-6">
-              <Link href="#" className="hover:font-bold duration-150">
+              <Link
+                href="/nuestra-filosofia"
+                className="hover:font-bold duration-150"
+              >
                 Filosofía
               </Link>
             </li>
