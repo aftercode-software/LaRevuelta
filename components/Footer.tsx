@@ -28,11 +28,11 @@ export default function Footer() {
                 Proceso de transformación
               </Link>
             </li>
-            <li className="list-disc ml-6">
+            {/* <li className="list-disc ml-6">
               <Link href="/clientes" className="hover:font-bold duration-150">
                 Clientes
               </Link>
-            </li>
+            </li> */}
             <li className="list-disc ml-6">
               <Link
                 href="/nuestra-filosofia"

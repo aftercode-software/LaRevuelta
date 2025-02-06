@@ -29,10 +29,10 @@ const NavbarLinks = [
     ),
     href: "/proceso-transformacion",
   },
-  {
-    component: <span>Clientes</span>,
-    href: "/clientes",
-  },
+  // {
+  //   component: <span>Clientes</span>,
+  //   href: "/clientes",
+  // },
   {
     component: <span>Filosofía</span>,
     href: "/nuestra-filosofia",
